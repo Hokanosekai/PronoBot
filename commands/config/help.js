@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2021.
- * by Hokanosekai
- */
-
-const { prefix } = require('../../config.json');
 const Discord = require('discord.js');
 const fs = require('fs');
 const pagination = require('discord.js-pagination')
@@ -11,13 +5,20 @@ const pagination = require('discord.js-pagination')
 module.exports = {
     name: 'help',
     category: 'Config',
-    description: 'Liste de toutes les commandes avec leurs usages',
+    description: 'List all the commands and view a specific one',
     aliases: ['commands','h'],
     usage: '<command name>',
     admin: false,
+    loaded: true,
 
-    run: async (message, args, bot) => {
+    run: async (message, args, client) => {
         const { commands } = message.client;
+
+        var prefix = global.guildList.find(e =>
+            e.id_g === message.guild.id
+        )? global.guildList.find(e =>
+            e.id_g === message.guild.id
+        ).prefix : process.env.PREFIX
 
         if (!args.length) {
 
@@ -58,7 +59,7 @@ module.exports = {
 
         let help = new Discord.MessageEmbed()
             .setColor('#0099ff')
-            .setFooter("demandé par @" + message.author.tag)
+            .setFooter("Pronobot - ©2021")
 
         const name = args[0].toLowerCase();
         const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));

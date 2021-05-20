@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const {updateMoney} = require("../../dbManager");
-const {getUser} = require("../../dbManager");
 
 module.exports = {
     name: "setbalance",
@@ -10,8 +8,9 @@ module.exports = {
     usage: '<@user> <new balance>',
     args: true,
     admin: true,
+    loaded: false,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile) => {
         const author = message.member
 
         const member = message.mentions.members.first()

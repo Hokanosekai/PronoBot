@@ -1,73 +1,65 @@
-const Discord = require('discord.js')
-const db = require('../../db')
-const {removeBetByGuild} = require("../../dbManager");
-const {updateMoney} = require("../../dbManager");
-const {getUser} = require("../../dbManager");
-const {getBetsByGuild} = require("../../dbManager");
-const {removeMatch} = require("../../dbManager");
-const {getMatch} = require("../../dbManager");
+const {capitalize} = require("../../functions");
+
+const bet_controller = require('../../controllers/controller.bet')
+const user_controller = require('../../controllers/controller.user')
+const match_controller = require('../../controllers/controller.match')
+
+const name = 'delete'
+const category = 'match'
 
 module.exports = {
-    name: "delete",
-    category: 'Match',
+    name,
+    category,
     description: "Delete in progress match",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: true,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
-        const guildId = message.guild.id
+
+        const langF = langFile.commands[category][name]
+
+        const MATCH = db_values.MATCH
+        const USER = db_values.USER
 
         let del = new Discord.MessageEmbed()
-            .setTitle('Match supprimé !')
-            .setFooter("Pronobot - 2021")
+            .setTitle(langF.embed_title)
+            .setFooter("Pronobot - ©2021")
             .setColor('RED')
 
-        //if (!author.hasPermission('ADMINISTRATOR')) return message.channel.send(`[❌] <@${author.id}> Tu n'as pas la permission d'éxecuter cette commande`)
+        if (MATCH === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_match}`)
 
-        getMatch(guildId).then(async match => {
-            if (match.length === 0) return message.channel.send(`[❌] <@${author.id}> Il n'y a pas de match en cours`)
+        const match_info = JSON.parse(MATCH.info)
 
-            await getBetsByGuild(guildId).then(async bets => {
-                if (bets.length === 0) return
+        let bets = []
+        bets = await bet_controller.get({match: MATCH._id}).then(b => {
+            return b
+        }).catch(err => console.error(err))
 
-                await bets.forEach(bet => {
-                    const member = client.users.cache.get(bet.id_user)
+        await bets.forEach((bet) => {
 
-                    getUser(bet.id_user).then(async user => {
-                        await updateMoney(user[0].id_user, user[0].money+bet.somme).then(() => {
+            const bet_info = JSON.parse(bet.info)
+            const member = client.users.cache.get(USER.userID)
 
-                            member.send(del.setDescription(`
-                                Le Match **${match[0].atk_name.replace(/^\w/, c => { return c.toUpperCase()})} @${match[0].atk_cote} - ${match[0].def_name.replace(/^\w/, c => { return c.toUpperCase()})} @${match[0].def_cote}**
-                                sur le serveur **${message.guild.name}** à été annulé.
-                                Vous avez été remboursé de l'intégralité de votre mise
-                            `))
+            user_controller.update({_id: USER._id, type:'money', value: USER.money + parseInt(bet_info.somme)}).then(() => {
 
-                        }).catch(err => {
-                            console.error(err)
-                        })
-                    }).catch(err => {
-                        console.error(err)
-                    })
-                })
+                member.send(del.setDescription(langF.embed_desc.replace('[atk_name]', capitalize(match_info.atk_n))
+                    .replace('[atk_cote]', match_info.atk_c)
+                    .replace('[def_name]', capitalize(match_info.def_n))
+                    .replace('[def_cote]', match_info.def_c)
+                    .replace('[s_name]', bet.guild_id.serverName)
+                ))
 
-            }).catch(err => {
-                console.error(err)
-            })
+                bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
 
-            message.channel.send(`[✅] :flag_white: Le match à été annulé par <@${author.id}>, tous les parieurs ont été remboursé`)
-
-            await removeMatch(guildId).catch(err => {
-                console.error(err)
-            })
-            await removeBetByGuild(guildId).catch(err => {
-                console.error(err)
-            })
-
-        }).catch(err => {
-            console.error(err)
+            }).catch(err => console.error(err))
         })
+
+        await match_controller.delete({_id: MATCH._id}).then(() => {
+            message.channel.send(`[✅] ${langF.success.replace('[author]', author.id)}`)
+        }).catch(err => console.error(err))
     }
 }

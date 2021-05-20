@@ -1,0 +1,153 @@
+{
+  "commands": {
+    "user": {
+      "unbet": {
+        "command_desc": "Delete your last bet",
+        "embed_title": "Bet deleted!",
+        "error": "Error, you either don't have an account or you don't have a current bet.",
+        "channel_msg": "just cancelled his last bet :poop:",
+        "user_msg": "Your bet at [somme] :coin: on **[ville]** with odds at [cote] has been cancelled"
+      },
+      "stats": {
+        "embed_title": "Stats from",
+        "no_account": "You need to create an account for this order",
+        "nb_win": "Number of wins:",
+        "nb_loose": "Number of losses:",
+        "nb_game": "Number of games played:",
+        "taux": "win/loss rate:",
+        "gain": "Total win",
+        "mise": "Total stake"
+      },
+      "open": {
+        "have_account": "You already have an account",
+        "success": ":bank: Your account has just been created, we have credited you with 20 :coin: to start"
+      },
+      "mybets": {
+        "embed_title": "Your current bets",
+        "no_bets": "Error, either you don't have any accounts or you don't have any current bets.",
+        "bet": "[id]. **[ville]** - @[cote] | bet: [somme] :coin: win: [gain] :coin: | (server - [s_name])\n"
+      },
+      "daily": {
+        "no_account": ":bank: You don't have an account, do '&open' to open one",
+        "already": ":calendar_spiral: You have already collected your daily batch.",
+        "success": ":calendar_spiral: You have successfully collected your daily batch of 5 :coin:, new balance: [plus] :coin:"
+      },
+      "close": {
+        "no_account": ":bank: You don't have an account, do '&open' to open one",
+        "success": ":bank: Your account has been deleted"
+      },
+      "bet": {
+        "embed_title": "Bet validated!",
+        "negate": "You can't bet 0 :coin:",
+        "no_account": ":bank: You don't have an account, do '&open' to open one",
+        "no_money": "You don't have enough :coin: to place this bet",
+        "no_match": "There are no matches in progress",
+        "already_bet": "You already have a bet on this game, cancel it to place another one",
+        "time_pass": "You cannot bet on this game anymore",
+        "no_club": "The club you have chosen is not playing this game",
+        "success": "just bet :zap:",
+        "embed_desc": "You have bet [somme] :coin: on [ville],\nWith odds at @[cote], you can win [gain] :coin:\nServer -> **[s_name]**"
+      },
+      "balance": {
+        "no_account": ":bank: You don't have an account, do '&open' to open one",
+        "success": "You have [money] :coin: in your account"
+    }
+    },
+    "match": {
+      "create": {
+        "already_match": "There is already a match in progress :crossed_flags:",
+        "no_time": "Use `&bet <club> <sum>` to bet",
+        "time": "Use `&bet <club> <sum>` to bet\nYou will not be able to bet from : [time]"
+      },
+      "delete": {
+        "embed_title": "Match deleted!",
+        "no_match": "There is no match in progress",
+        "success": ":flag_white: The match has been cancelled by <@[author]>, all bettors have been refunded",
+        "embed_desc": "The Match **[atk_name] @[atk_cote] - [def_name] @[def_cote]** on the **[s_name]** server has been cancelled."
+      },
+      "match": {
+        "no_match": "There is no match in progress",
+        "embed_title": "Current match :crossed_flags:",
+        "no_time": "Use `&bet <club> <sum>` to bet",
+        "time": "Use `&bet <club> <sum>` to bet"
+      },
+      "result": {
+        "no_match": "There are no matches in progress",
+        "unknown_match": "This match does not exist",
+        "embed_title": "Match over!",
+        "loose_msg": "You lost [somme] :coin:\nYou had bet on **[ville]**\nServer -> **[s_name]**",
+        "win_msg": "You won [gain] :coin:\nYou had bet on **[ville]**\nServer -> **[s_name]**",
+        "no_winner": ":loudspeaker: Match over! No winner: [nul] @[cote]",
+        "winner": ":loudspeaker: Match over! Winner: [ville] @[cote]"
+      }
+    },
+    "general": {
+      "topwin": {
+        "embed_title": "Ranking by number of wins",
+        "no_user": "There are no users"
+      },
+      "toploose": {
+        "embed_title": "Ranking by number of defeats",
+        "no_user": "There are no users"
+      },
+      "topgame": {
+        "embed_title": "Ranking by number of games played",
+        "no_user": "There are no users"
+      },
+      "topmoney": {
+        "embed_title": "Ranking by money",
+        "no_user": "There are no users"
+      }
+    },
+    "config": {
+      "servinfo": {
+        "name": "Server name: ",
+        "members": "Total number of members:",
+        "owner": "Server creator"
+      },
+      "botinfo": {
+        "embed_title":"__**Bot information**__",
+        "creator": "Bot creator:",
+        "ram": "RAM Used",
+        "run_time": "Online since ⏲",
+        "archi": "Architecture",
+        "plateform": "Platform",
+        "lang": "Language"
+      },
+      "setlang": {
+        "no_guild": "This guild does not exist",
+        "banned": "This guild is banned from the bot",
+        "no_lang": "This language does not exist",
+        "langs": [
+          {
+            "name": "Français",
+            "abbr": "fr"
+          },
+          {
+            "name": "English",
+            "abbr": "en"
+          }
+        ],
+        "success": "You have changed the default language"
+      },
+      "share": {
+        "embed_title": "Do you like the concept ?",
+        "add": "Share it with your friends by adding it to your server :",
+        "web": "Need more info? Check out our website :"
+      }
+    }
+  },
+  "events": {
+    "client": {
+      "message": {
+        "embed_title": "Command",
+        "no_permission": "You do not have permission to run this command",
+        "not_in_dm": "I can't execute this command in DM",
+        "args_no_usage": "The arguments of the command are not valid",
+        "args_usage": "The arguments of the command are invalid\nPlease type args like\n",
+        "command_error": "An error occurred while executing the command"
+      }
+    }
+  }
+}
+

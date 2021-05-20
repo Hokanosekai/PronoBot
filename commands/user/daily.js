@@ -1,37 +1,33 @@
-const {updateTag, getUser, updateDaily, updateMoney} = require("../../dbManager");
+const userC = require('../../controllers/controller.user')
+
+const name = 'daily'
+const category = 'user'
 
 module.exports = {
-    name: "daily",
-    category: 'User',
+    name,
+    category,
     description: "Get daily reward",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values) => {
         const author = message.member
 
-        getUser(author.id).then(async user => {
-            if (user.length === 0) return message.channel.send(`[❌] <@${author.id}> :bank: Vous ne possédez pas de compte, faites '&open' pour en ouvrir un`)
-            if (user[0].daily_claimed === 'true') return message.channel.send(`[❌] <@${author.id}> :calendar_spiral: Tu as déjà récupéré ton lot quotidien.`)
+        const USER = db_values.USER
 
-            await updateMoney(author.id, user[0].money + 5).catch(err => {
-                console.error(err)
-            })
-            await updateDaily(author.id, 'true').catch(err => {
-                console.error(err)
-            })
+        const langF = langFile.commands[category][name]
 
-            message.channel.send(`[✅] <@${author.id}> :calendar_spiral: Tu as bien récupéré ton lot quotidien de 5 :coin:, nouveau solde: ${user[0].money + 5} :coin:`)
+        if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
 
-            if (user[0].tag_user !== message.author.tag) {
-                await updateTag(author.id, message.author.tag).catch(err => {
-                    console.error(err)
-                })
-            }
-        }).catch(err => {
-            console.error(err)
-        })
+        if (USER.daily_claimed) return message.channel.send(`[❌] <@${author.id}> ${langF.already}`)
+
+        await userC.update({_id: USER._id, type:'money', value: USER.money + 5}).catch(err => console.error(err))
+
+        await userC.update({_id: USER._id, type: 'daily', value: true}).catch(err => console.error(err))
+
+        message.channel.send(`[✅] <@${author.id}> ${langF.success.replace('[plus]', USER.money+5)}`)
     }
 }

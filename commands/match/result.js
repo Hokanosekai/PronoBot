@@ -1,121 +1,103 @@
-const Discord = require('discord.js')
-const {removeMatch} = require("../../dbManager");
-const {removeBetByGuild} = require("../../dbManager");
-const {updateLoose} = require("../../dbManager");
-const {updateWin} = require("../../dbManager");
-const {updateMoney} = require("../../dbManager");
-const {updateGame} = require("../../dbManager");
-const {getUser} = require("../../dbManager");
-const {getBetsByGuild} = require("../../dbManager");
-const {getMatch} = require("../../dbManager");
+const {capitalize} = require('../../functions')
+
+const bet_controller = require('../../controllers/controller.bet')
+const user_controller = require('../../controllers/controller.user')
+const match_controller = require('../../controllers/controller.match')
+const config_controller = require('../../controllers/controller.config')
+
+const name = 'result'
+const category = 'match'
 
 module.exports = {
-    name: "result",
-    category: 'Match',
+    name,
+    category,
     description: "Give the result of a match",
     aliases: null,
     usage: '<winner>',
     args: true,
     admin: true,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
-        //if (!author.hasPermission('ADMINISTRATOR')) return message.channel.send(`[❌] <@${author.id}> Vous n'avez pas la permission d'éxecuter cette commande`)
+        let result = args[0].toLowerCase();
 
-        let resultat = args[0].toLowerCase();
-        let guildId = message.guild.id;
+        const MATCH = db_values.MATCH
+        const USER = db_values.USER
 
-        getMatch(guildId).then(async match => {
-            if (match.length === 0) return message.channel.send(`[❌] <@${author.id}> Il n'y a aucun match en cours`)
+        const langF = langFile.commands[category][name]
 
-            if((resultat !== match[0].atk_name) && (resultat !== match[0].def_name) && (resultat !== match[0].nul_name)) return message.channel.send(`[❌] <@${author.id}> Ce match n'existe pas`)
+        if (MATCH === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_match}`)
 
-            let cote
-            switch (resultat) {
-                case match[0].atk_name :
-                    cote = match[0].atk_cote
-                    break
-                case match[0].def_name :
-                    cote = match[0].def_cote
-                    break
-                default :
-                    cote = match[0].nul_cote
-                    break
+        const match_info = JSON.parse(MATCH.info)
+        if((result !== match_info.atk_n) && (result !== match_info.def_n) && (result !== match_info.nul_n)) return message.channel.send(`[❌] <@${author.id}> ${langF.unknown_match}`)
+
+        let cote
+        switch (result) {
+            case match_info.atk_n :
+                cote = match_info.atk_c
+                break
+            case match_info.def_n :
+                cote = match_info.def_c
+                break
+            default :
+                cote = match_info.nul_c
+                break
+        }
+
+        let bets = []
+        bets = await bet_controller.get({match: MATCH._id}).then(b => {
+            return b
+        }).catch(err => console.error(err))
+
+
+        bets.forEach(bet => {
+            const bet_info = JSON.parse(bet.info)
+
+            let del = new Discord.MessageEmbed()
+                .setTitle(langF.embed_title)
+                .setFooter("Pronobot - ©2021")
+                .setColor('GREE')
+                .addFields(
+                    {name: capitalize(match_info.atk_n), value: '@'+match_info.atk_c, inline: true},
+                    {name: capitalize(match_info.nul_n), value: '@'+match_info.nul_c, inline: true},
+                    {name: capitalize(match_info.def_n), value: '@'+match_info.def_c, inline: true}
+                )
+                .setDescription(langF.loose_msg.replace('[somme]', bet_info.somme)
+                    .replace('[ville]', bet_info.club)
+                    .replace('[s_name]', bet.guild_id.serverName)
+                )
+
+            if (bet_info.club === result) {
+                user_controller.update({_id: USER._id, type: 'money', value: USER.money + parseInt(bet_info.gain)}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'win', value: USER.win + 1}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'gain', value: USER.gain_tot + parseInt(bet_info.gain)}).catch(err => console.error(err))
+
+                del.setDescription(langF.win_msg.replace('[gain]', bet_info.gain)
+                    .replace('[ville]', bet_info.club)
+                    .replace('[s_name]', bet.guild_id.serverName)
+                )
+
+            } else {
+                user_controller.update({_id: USER._id, type: 'loose', value: USER.loose + 1}).catch(err => console.error(err))
             }
 
-            getBetsByGuild(guildId).then(async bets => {
-                console.log(bets.length)
-                if (bets.length === 0) return
+            user_controller.update({_id: USER._id, type: 'game', value: USER.game + 1}).catch(err => console.error(err))
+            user_controller.update({_id: USER._id, type: 'mise', value: USER.mise_tot + parseInt(bet_info.somme)}).catch(err => console.error(err))
 
-                bets.forEach(bet => {
-                    getUser(bet.id_user).then(async user => {
-                        const member = client.users.cache.get(user[0].id_user)
-                        //console.log(member)
-                        //console.log(bet.id,user.nb_game, user.nb_loose, user.nb_win)
+            const member = client.users.cache.get(USER.userID)
+            member.send(del)
 
-                        let del = new Discord.MessageEmbed()
-                            .setTitle('Match terminé !')
-                            .setFooter("Pronobot - 2021")
-                            .setColor('GREE')
-                            .addFields(
-                                {name: match[0].atk_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].atk_cote, inline: true},
-                                {name: match[0].nul_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].nul_cote, inline: true},
-                                {name: match[0].def_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].def_cote, inline: true}
-                            )
-                            .setDescription(`
-                                Vous avez perdu ${bet.somme} :coin:
-                                Vous aviez misé sur **${bet.ville}**
-                                Serveur -> **${message.guild.name}**
-                            `)
+            bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
 
-                        if (bet.ville === resultat) {
-
-                            await updateMoney(user[0].id_user, user[0].money + bet.gain).catch(err => {
-                                console.log(err)
-                            })
-                            await updateWin(user[0].id_user, user[0].nb_win + 1).catch(err => {
-                                console.log(err)
-                            })
-
-                            del.setDescription(`
-                                Vous avez gagner ${bet.gain} :coin:
-                                Vous aviez misé sur **${bet.ville}**
-                                Serveur -> **${message.guild.name}**
-                            `)
-                        } else {
-                            await updateLoose(user[0].id_user, user[0].nb_loose + 1).catch(err => {
-                                console.log(err)
-                            })
-                        }
-
-                        await updateGame(user[0].id_user, user[0].nb_game + 1).then(() => {
-                            member.send(del)
-                        }).catch(err => {
-                            console.log(err)
-                        })
-
-                    }).catch(err => {
-                        console.log(err)
-                    })
-                })
-
-            }).catch(err => {
-                console.log(err)
-            })
-
-            await removeMatch(guildId).catch(err => {
-                console.log(err)
-            })
-            await removeBetByGuild(guildId).catch(err => {
-                console.log(err)
-            })
-
-            if (resultat === 'nul') return message.channel.send(`[✅] <@${author.id}> :loudspeaker: Match terminé ! Aucun gagnant: ${args[0].replace(/^\w/, c => { return c.toUpperCase()})} @${cote}`)
-            return message.channel.send(`[✅] <@${author.id}> :loudspeaker: Match terminé ! Gagnant: ${args[0].replace(/^\w/, c => { return c.toUpperCase()})} @${cote}`)
-
-        }).catch(err => {
-            console.log(err)
+            config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'bet'})
         })
+
+        await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
+        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'match'})
+
+        if (result === 'nul') return message.channel.send(`[✅] <@${author.id}> ${langF.no_winner.replace('[nul]', capitalize(args[0])).replace('[cote]', cote)}`)
+        return message.channel.send(`[✅] <@${author.id}> ${langF.winner.replace('[ville]', capitalize(args[0])).replace('[cote]', cote)}`)
     }
 }

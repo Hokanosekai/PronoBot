@@ -1,24 +1,30 @@
 const Discord = require("discord.js")
 
+const name = 'servinfo'
+const category = 'config'
+
 module.exports = {
-    name: 'servinfo',
-    category: 'Config',
-	description: 'Information sur le server',
+    name,
+    category,
+	description: 'Information about the server',
 	aliases: ['si'],
 	usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
     
-    run: async (message) => {
+    run: async (message, args, client, langFile) => {
+
+        const langF = langFile.commands[category][name]
 
         let serv = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
-            .setTitle(`Server name: ${message.guild.name}`)
-            .addField(`Total members:`,` ${message.guild.memberCount}`)
-            .addField(`Créateur du Server`,`${message.guild.owner}`)
-            .setFooter("demandé par @" + message.author.tag)
+            .setTitle(`${langF.name} ${message.guild.name}`)
+            .addField(langF.members,` ${message.guild.memberCount}`)
+            .addField(langF.owner,`${message.guild.owner}`)
+            .setFooter("Pronobot - ©2021")
             .setColor('#0099ff')
         
-        message.channel.send(serv);
+        await message.channel.send(serv);
     }
 }

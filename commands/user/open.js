@@ -1,29 +1,49 @@
-const {addUser, getUser} = require("../../dbManager");
+const userC = require('../../controllers/controller.user')
+const config_controller = require('../../controllers/controller.config')
+
+const {ObjectId} = require("bson");
+
+const name = 'open'
+const category = 'user'
 
 module.exports = {
-    name: "open",
-    category: 'User',
-    description: "Open a new account",
+    name,
+    category,
+    description: "Open your account",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
-        getUser(author.id).then(async res => {
-            if (res.length !== 0) return message.channel.send(`[❌] <@${author.id}> Tu as déjà un compte`)
+        const langF = langFile.commands[category][name]
 
-            const values = {id_u: author.id, tag: message.author.tag}
-            await addUser(values).then(() => {
-                message.channel.send(`[✅] <@${author.id}> :bank: Ton compte vient d'être créé, nous t'avons crédité de 20 :coin: pour débuter`)
-            }).catch(err => {
-                console.error(err)
-            })
 
-        }).catch(err => {
-            console.error(err)
-        })
+        if (db_values.USER !== undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.have_account}`)
+
+        const user = {
+            userID: author.id,
+            userAvatar: message.author.displayAvatarURL({ dynamic: true }),
+            userTag: message.author.tag,
+            guild_id: ObjectId(`${db_values.GUILD._id}`),
+            money: 20,
+            win: 0,
+            loose: 0,
+            game: 0,
+            gain_tot: 0,
+            mise_tot: 0,
+            daily_claimed: false
+        }
+
+
+        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'user'}).catch(err => console.error(err))
+
+        userC.create(user).then(() => {
+            return message.channel.send(`[✅] <@${author.id}> ${langF.success}`)
+        }).catch(err => console.error(err))
+
     }
 }

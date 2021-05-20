@@ -1,40 +1,45 @@
-const Discord = require('discord.js')
-const {updateMoney, getUser, removeBetById, getBetByUserByGuild} = require("../../dbManager");
+const {capitalize} = require("../../functions");
+
+const bet_controller = require('../../controllers/controller.bet')
+const user_controller = require('../../controllers/controller.user')
+
+const name = 'unbet'
+const category = 'user'
 
 module.exports = {
-    name: "unbet",
-    category: 'User',
-    description: "Delete the last bet in progress",
+    name,
+    category,
+    description: "Delete your last bet",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
-        const guildId = message.guild.id
+
+        const langF = langFile.commands[category][name]
 
         let unbet = new Discord.MessageEmbed()
-            .setTitle('Bet supprimé !')
-            .setFooter("Pronobot - 2021")
+            .setTitle(langF.embed_title)
+            .setFooter("Pronobot - ©2021")
             .setColor('RED')
 
-        getBetByUserByGuild(author.id, guildId).then(async bet => {
-            if (bet.length === 0) return message.channel.send(`[❌] <@${author.id}> Erreur, soit tu n'as pas de comptes, soit tu n'as pas de bet en cours.`)
+        if (db_values.BET === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.error}`)
 
-            await removeBetById(bet[0].id)
-            getUser(author.id).then(async user => {
-                await updateMoney(author.id, user[0].money + bet[0].somme).catch(err => {
-                    console.log(err)
-                })
-            }).catch(err => {
-                console.error(err)
-            })
+        const bet_info = JSON.parse(db_values.BET.info)
 
-            message.channel.send(`[✅] <@${author.id}> vient d'annuler son dernier bet :poop:`)
-            await message.author.send(unbet.setDescription(`Votre paris à ${bet[0].somme} :coin: sur ${bet[0].ville} avec une cote à @${bet[0].cote} a bien été annulé`))
-        }).catch(err => {
-            console.error(err)
-        })
+        user_controller.update({_id: db_values.USER._id, type: 'money', value: db_values.USER.money + parseInt(bet_info.somme)}).then(() => {
+
+            bet_controller.delete({_id: db_values.BET._id}).catch(err => console.error(err))
+
+            message.channel.send(`[✅] <@${author.id}> ${langF.channel_msg}`)
+            let t = langF.user_msg.replace('[somme]', bet_info.somme)
+                .replace('[ville]', capitalize(bet_info.club))
+                .replace('[cote]', bet_info.cote)
+            message.author.send(unbet.setDescription(`${t}`))
+
+        }).catch(err => console.error(err))
     }
 }

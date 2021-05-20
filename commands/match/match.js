@@ -1,41 +1,46 @@
-const Discord = require('discord.js')
-const db = require('../../db')
 const dateformat = require('dateformat')
-const {getMatch} = require("../../dbManager");
+const {capitalize} = require("../../functions");
+
+
+
+const name = 'match'
+const category = 'match'
 
 module.exports = {
-    name: "match",
-    category: 'Match',
+    name,
+    category,
     description: "Match in progress",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
-        getMatch(message.guild.id).then(async match => {
-            if (match.length === 0) return message.channel.send(`[❌] <@${author.id}> Il n'y a pas de match en cours sur ce serveur`)
+        const langF = langFile.commands[category][name]
 
-            let matche = new Discord.MessageEmbed()
-                .setTitle(`Match actuel :crossed_flags:`)
-                .setColor('DARK_GREEN')
-                .addFields(
-                    {name: match[0].atk_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].atk_cote, inline: true},
-                    {name: match[0].nul_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].nul_cote, inline: true},
-                    {name: match[0].def_name.replace(/^\w/, c => { return c.toUpperCase()}), value: '@'+match[0].def_cote, inline: true}
-                )
-                .setDescription('Utilisez `&bet <club> <somme>` pour miser')
+        if (db_values.MATCH === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_match}`)
 
-            if (match[0].end_date !== 'null') {
-                let restTime = match[0].end_date - Date.now()
-                matche.setDescription(`Utilisez \`&bet <club> <somme>\` pour miser \nIl reste ${dateformat(new Date(restTime).getTime(), "HH'h'MM'min'ss'sec' UTC")}`)
-            }
+        const match_info = JSON.parse(db_values.MATCH.info)
 
-            await message.channel.send(matche)
-        }).catch(err => {
-            console.error(err)
-        })
+        let matche = new Discord.MessageEmbed()
+            .setTitle(langF.embed_title)
+            .setColor('DARK_GREEN')
+            .addFields(
+                {name: capitalize(match_info.atk_n), value: '@'+match_info.atk_c, inline: true},
+                {name: capitalize(match_info.nul_n), value: '@'+match_info.nul_c, inline: true},
+                {name: capitalize(match_info.def_n), value: '@'+match_info.def_c, inline: true}
+            )
+            .setDescription(langF.no_time)
+            .setFooter("Pronobot - ©2021")
+
+        if (match_info.end_date !== 'null') {
+            let restTime = match_info.end - Date.now()
+            matche.setDescription(langF.time.replace('[time]', dateformat(new Date(restTime).getTime(), "HH'h'MM'min'ss'sec' UTC")))
+        }
+
+        await message.channel.send(matche)
     }
 }

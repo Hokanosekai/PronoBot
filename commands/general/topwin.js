@@ -1,38 +1,42 @@
-const Discord = require('discord.js')
-const db = require('../../db')
-const {getTopWin} = require("../../dbManager");
+const user_controller = require('../../controllers/controller.user')
+const name = 'topwin'
+const category = 'general'
 
 module.exports = {
-    name: "topwin",
-    category: 'General',
-    description: "Affiche le classement en fonction du nombre de victoires",
+    name,
+    category,
+    description: "Ranking by number of games played won",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
+        const langF = langFile.commands[category][name]
+
         let statsCommand = new Discord.MessageEmbed()
-            .setTitle('Classement par nombre de victoires')
-            .setFooter("demandé par @"+message.author.tag)
+            .setTitle(langF.embed_title)
+            .setFooter("Pronobot - ©2021")
             .setColor('YELLOW')
-            .setThumbnail(message.author.displayAvatarURL({dynamic: true}))
+            //.setThumbnail(message.author.displayAvatarURL({dynamic: true}))
 
-        getTopWin().then(res => {
-            if (res.length === 0) return message.channel.send(`[❌] <@${author.id}> La BDD est vide.`)
+        let users = []
+        users = await user_controller.top({guild: db_values.GUILD._id, type: 'win'}).then(users => {
+            return users
+        }).catch(err => console.error(err))
 
-            let s = ''
-            for (let i = 0; i < res.length; i++) {
-                s += i+1 +'. '+ res[i].tag_user + " - " + res[i].nb_win + '\n'
-            }
+        if (users.length === 0) return message.channel.send(`[❌] <@${author.id}> ${langF.no_user}`)
 
-            statsCommand.setDescription(s);
+        let s = ''
+        for (let i = 0; i < users.length; i++) {
+            s += i+1 +'. '+ users[i].userTag + " -  **" + users[i].win + '**\n'
+        }
 
-            message.channel.send(statsCommand);
-        }).catch(err => {
-            console.error(err)
-        })
+        statsCommand.setDescription(s);
+
+        message.channel.send(statsCommand);
     }
 }

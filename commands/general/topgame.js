@@ -1,38 +1,44 @@
 const Discord = require('discord.js')
-const db = require('../../db')
-const {getTopGame} = require("../../dbManager");
+
+const user_controller = require('../../controllers/controller.user')
+
+const name = "topgame"
+const category = 'general'
 
 module.exports = {
-    name: "topgame",
-    category: 'General',
-    description: "Affiche le classement en fonction du nombre de parties jouées",
+    name,
+    category,
+    description: "Ranking by number of games played",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
+        const langF = langFile.commands[category][name]
+
         let statsCommand = new Discord.MessageEmbed()
-            .setTitle('Classement par parties jouées')
-            .setFooter("demandé par @"+message.author.tag)
+            .setTitle(langF.embed_title)
+            .setFooter("Pronobot - ©2021")
             .setColor('BLUE')
-            .setThumbnail(message.author.displayAvatarURL({dynamic: true}))
 
-        getTopGame().then(res => {
-            if (res.length === 0) return message.channel.send(`[❌] <@${author.id}> La BDD est vide.`)
+        let users = []
+        users = await user_controller.top({guild: db_values.GUILD._id, type: 'game'}).then(users => {
+            return users
+        }).catch(err => console.error(err))
 
-            let s = ''
-            for (let i = 0; i < res.length; i++) {
-                s += i+1 +'. '+ res[i].tag_user + " - " + res[i].nb_game + '\n'
-            }
+        if (users.length === 0) return message.channel.send(`[❌] <@${author.id}> ${langF.no_user}`)
 
-            statsCommand.setDescription(s);
+        let s = ''
+        for (let i = 0; i < users.length; i++) {
+            s += i+1 +'. '+ users[i].userTag + " -  **" + users[i].game + '**\n'
+        }
 
-            message.channel.send(statsCommand);
-        }).catch(err => {
-            console.error(err)
-        })
+        statsCommand.setDescription(s);
+
+        message.channel.send(statsCommand);
     }
 }

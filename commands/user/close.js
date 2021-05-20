@@ -1,29 +1,51 @@
-const {removeBetByUser, removeUser, getUser} = require("../../dbManager");
+const userC = require('../../controllers/controller.user')
+
+const name = 'close'
+const category = 'user'
 
 module.exports = {
-    name: "close",
-    category: 'User',
-    description: "Close a new account",
+    name,
+    category,
+    description: "Close your account",
     aliases: null,
     usage: '<none>',
     args: false,
     admin: false,
+    loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values) => {
         const author = message.member
 
-        getUser(author.id).then(async user => {
-            if (user.length === 0) message.channel.send(`[❌] <@${author.id}> Ton compte n'existe pas`)
-            await removeUser(author.id).catch(err => {
-                console.error(err)
+        const langF = langFile.commands[category][name]
+
+        if (db_values.USER === undefined) return  message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
+
+        await userC.delete({_id: db_values.USER._id})
+            .then(() => {
+                message.channel.send(`[✅] <@${author.id}> ${langF.success}`)
             })
-            await removeBetByUser(author.id).catch(err => {
+            .catch(err => console.error(err))
+
+
+        /*u.read({user: author.id, guild: guildID}).then(async user => {
+            if (user.length === 0)
+            await u.delete({uuid: user[0].uuid}).catch(err => {
                 console.error(err)
             })
 
-            message.channel.send(`[✅] <@${author.id}> :bank: Ton compte vient d'être supprimé`)
+            await b.read({user: author.id, guild: guildID}).then(async bet => {
+                if (bet.length === 0) return
+                await b.delete({uuid: bet[0].uuid}).catch(err => {
+                    console.error(err)
+                })
+            }).catch(err => {
+                console.error(err)
+            })
+
+
+
         }).catch(err => {
             console.error(err)
-        })
+        })*/
     }
 }

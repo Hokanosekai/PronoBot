@@ -1,0 +1,157 @@
+{
+  "commands": {
+    "user": {
+      "unbet": {
+        "command_desc": "Supprimer votre dernier pari",
+        "embed_title": "Pari supprimé !",
+        "error": "Erreur, soit tu n'as pas de comptes, soit tu n'as pas de pari en cours.",
+        "channel_msg": "vient d'annuler son dernier pari :poop:",
+        "user_msg": "Votre pari à [somme] :coin: sur **[ville]** avec une cote à [cote] à bien été annulé"
+      },
+      "stats": {
+        "embed_title": "Stats de",
+        "no_account": "Il faut te créer un compte pour cette commande",
+        "nb_win": "Nombre de victoires:",
+        "nb_loose": "Nombre de défaites:",
+        "nb_game": "Nombre de parties jouées:",
+        "taux": "Taux victoire/defaite:",
+        "gain": "Gains totaux",
+        "mise": "Mise totale"
+      },
+      "open": {
+        "have_account": "Tu as déjà un compte",
+        "success": ":bank: Ton compte vient d'être créé, nous t'avons crédité de 20 :coin: pour débuter"
+      },
+      "mybets": {
+        "embed_title": "Tes paris en cours",
+        "no_bets": "Erreur, soit tu n'as pas de comptes, soit tu n'as pas de pari en cours.",
+        "bet": "[id]. **[ville]** - @[cote] | mise: [somme] :coin: gain: [gain] :coin: | (serveur - [s_name])\n"
+      },
+      "daily": {
+        "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
+        "already": ":calendar_spiral: Tu as déjà récupéré ton lot quotidien.",
+        "success": ":calendar_spiral: Tu as bien récupéré ton lot quotidien de 5 :coin:, nouveau solde: [plus] :coin:"
+      },
+      "close": {
+        "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
+        "success": ":bank: Ton compte vient d'être supprimé"
+      },
+      "bet": {
+        "embed_title": "Pari validé !",
+        "negate": "Tu ne peux pas miser 0 :coin:",
+        "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
+        "no_money": "Tu ne possèdes pas suffisament de :coin: pour placer ce pari",
+        "no_match": "Il n'y a pas de matchs en cours",
+        "already_bet": "Tu as déja un pari en cours sur ce match, annule le pour en refaire un",
+        "time_pass": "Tu ne peux plus parier sur ce match",
+        "no_club": "Le club que tu as choisie ne joue pas ce match",
+        "success": "vient de parier :zap:",
+        "embed_desc": "Vous avez misé [somme] :coin: sur [ville],\nAvec une cote à @[cote], vous pouvez gagner [gain] :coin:\nServeur -> **[s_name]**"
+      },
+      "balance": {
+        "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
+        "success": "Tu as [money] :coin: sur ton compte"
+      }
+    },
+    "match": {
+      "create": {
+        "already_match": "Il y a déjà un match en cours :crossed_flags:",
+        "no_time": "Utilisez `[prefix]bet <club> <somme>` pour miser",
+        "time": "Utilisez `[prefix]bet <club> <somme>` pour miser \nVous ne pourrez plus parier à partie de : [time]"
+      },
+      "delete": {
+        "embed_title": "Match supprimé !",
+        "no_match": "Il n'y a pas de match en cours",
+        "success": ":flag_white: Le match à été annulé par <@[author]>, tous les parieurs ont été remboursé",
+        "embed_desc": "Le Match **[atk_name] @[atk_cote] - [def_name] @[def_cote]**\nsur le serveur **[s_name]** à été annulé.\nVous avez été remboursé de l'intégralité de votre mise"
+      },
+      "match": {
+        "no_match": "Il n'y a pas de match en cours",
+        "embed_title": "Match actuel :crossed_flags:",
+        "no_time": "Utilisez `[prefix]bet <club> <somme>` pour miser",
+        "time": "Utilisez `[prefix]bet <club> <somme>` pour miser \nIl reste [time]}"
+      },
+      "result": {
+        "no_match": "Il n'y a pas de match en cours",
+        "unknown_match": "Ce match n'existe pas",
+        "embed_title": "Match terminé !",
+        "loose_msg": "Vous avez perdu [somme] :coin:\nVous aviez misé sur **[ville]**\nServeur -> **[s_name]**",
+        "win_msg": "Vous avez gagné [gain] :coin:\nVous aviez misé sur **[ville]**\nServeur -> **[s_name]**",
+        "no_winner": ":loudspeaker: Match terminé ! Aucun gagnant: [nul] @[cote]",
+        "winner": ":loudspeaker: Match terminé ! Gagnant: [ville] @[cote]"
+      }
+    },
+    "general": {
+      "topwin": {
+        "embed_title": "Classement par nombre de victoires",
+        "no_user": "Il n'y a aucun utilisateur"
+      },
+      "toploose": {
+        "embed_title": "Classement par nombre de défaites",
+        "no_user": "Il n'y a aucun utilisateur"
+      },
+      "topgame": {
+        "embed_title": "Classement par nombre de parties jouées",
+        "no_user": "Il n'y a aucun utilisateur"
+      },
+      "topmoney": {
+        "embed_title": "Classement par argent",
+        "no_user": "Il n'y a aucun utilisateur"
+      }
+    },
+    "config": {
+      "servinfo": {
+        "name": "Nom du serveur: ",
+        "members": "Nombre total de membres:",
+        "owner": "Créateur du serveur"
+      },
+      "botinfo": {
+        "embed_title": "__**Informations sur le bot**__",
+        "creator": "Créateur du bot :",
+        "ram": "RAM Utilisée ",
+        "run_time": "En ligne depuis ⏲",
+        "archi": "Architecture",
+        "plateform": "Platforme",
+        "lang": "Langage"
+      },
+      "setlang": {
+        "no_guild": "Cette guild n'existe pas",
+        "banned": "Cette guild est banni du bot",
+        "no_lang": "Cette langue n'existe pas",
+        "langs": [
+          {
+            "name": "Français",
+            "abbr": "fr"
+          },
+          {
+            "name": "Anglais",
+            "abbr": "en"
+          }
+        ],
+        "success": "Vous avez changé la langue"
+      },
+      "share": {
+        "embed_title": "Le concept te plait ?",
+        "add": "Partage le à tes amis en l'ajoutant a ton serveur :",
+        "web": "Besoin de plus d'info? Consulte notre site web :"
+      },
+      "setprefix": {
+        "no_guild": "Cette guild n'existe pas",
+        "banned": "Cette guild est banni du bot",
+        "success": "Vous avez changé le prefix du bot pour ["
+      }
+    }
+  },
+  "events": {
+    "client": {
+      "message": {
+        "embed_title" : "Commande",
+        "no_permission" : "Vous n'avez pas la permission d'exécuter cette commande",
+        "not_in_dm" : "Je ne peux pas exécuter cette commande dans DM",
+        "args_no_usage" : "Les arguments de la commande ne sont pas valides",
+        "args_usage" : "Les arguments de la commande sont invalides\nVeuillez entrer des arguments de type\n",
+        "command_error" : "Une erreur s'est produite lors de l'exécution de la commande"
+      }
+    }
+  }
+}
