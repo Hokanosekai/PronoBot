@@ -57,7 +57,9 @@
         "no_mention": "Merci de mentionner un utilisateur",
         "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
         "no_money": "Tu ne possèdes pas suffisament de :coin: pour placer ce transfer",
-        "no_exist": "Cet utilisateur na pas de compte"
+        "no_exist": "Cet utilisateur na pas de compte",
+        "send": "[✅] You send [money]:coin: to [user]",
+        "receive": "[✅] You receive [money]:coin: from [user]"
       }
     },
     "match": {

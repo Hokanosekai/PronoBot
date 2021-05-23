@@ -7,7 +7,7 @@ module.exports = {
     name,
     category,
     description: "Transfer money between users",
-    aliases: null,
+    aliases: ['send'],
     usage: '<money> <@user>',
     args: true,
     admin: false,
@@ -35,12 +35,12 @@ module.exports = {
         if (MEMBER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_exist}`)
 
         user_controller.update({_id: USER._id, type: 'money', value: USER.money - parseInt(args[0])}).then(() => {
-            message.author.send(`[✅] You send ${args[0]}:coin: to ${MEMBER.userTag}`)
+            message.author.send(langF.send.replace('[money]', args[0]).replace('[user]', MEMBER.userTag))
         }).catch(err => console.error(err))
 
         const receiver = client.users.cache.get(MEMBER.userID)
         user_controller.update({_id: MEMBER._id, type: 'money', value: MEMBER.money + parseInt(args[0])}).then(() => {
-            receiver.send(`[✅] You receive ${args[0]}:coin: from ${USER.userTag}`)
+            receiver.send(langF.receive.replace('[money]', args[0]).replace('[user]', USER.userTag))
         }).catch(err => console.error(err))
     }
 }

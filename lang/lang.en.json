@@ -51,7 +51,22 @@
       "balance": {
         "no_account": ":bank: You don't have an account, do '&open' to open one",
         "success": "You have [money] :coin: in your account"
-    }
+      },
+      "transfer": {
+        "negate": "You can't transfer 0 :coin:",
+        "no_mention": "Please mention a user",
+        "no_account": ":bank: You don't have an account, do '[prefix]open' to open one",
+        "no_money": "You don't have enough :coin: to place this transfer",
+        "no_exist": "This user has no account",
+        "send": "[✅] You send [money]:coin: to [user]",
+        "receive": "[✅] You receive [money]:coin: from [user]"
+      },
+      "coinflip":{
+        "negate": "You can't bet 0 :coin:",
+        "no_account": ":bank: You don't have an account, do '&open' to open one",
+        "no_money": "You don't have enough :coin: to place this bet",
+        "no_usage": "Please enter face of coin like head or tail"
+      }
     },
     "match": {
       "create": {
