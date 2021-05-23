@@ -21,14 +21,15 @@ module.exports = {
 
         const langF = langFile.commands[category][name]
 
-
         if (db_values.USER !== undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.have_account}`)
 
+        const f = ObjectId(db_values.GUILD._id)
+
         const user = {
-            userID: author.id,
+            userID: `${author.id}`,
             userAvatar: message.author.displayAvatarURL({ dynamic: true }),
             userTag: message.author.tag,
-            guild_id: ObjectId(`${db_values.GUILD._id}`),
+            guild_id: `${f}`,
             money: 20,
             win: 0,
             loose: 0,

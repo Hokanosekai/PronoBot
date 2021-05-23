@@ -77,6 +77,9 @@ module.exports.update = ({_id, type, value}) => {
         case 'daily':
             t = {daily_claimed: value}
             break;
+        case 'avatar':
+            t = {userAvatar: value}
+            break;
     }
 
     return new Promise(async (resolve, reject) => {

@@ -24,6 +24,7 @@ module.exports = {
             .setColor('YELLOW')
             .setThumbnail(author.avatar)
 
+
         if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
 
         let taux = USER.game? (USER.win * 100) / USER.game : 0

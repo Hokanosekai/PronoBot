@@ -12,7 +12,7 @@ module.exports = {
 
         const guildData = {
             serverID: guild.id,
-            serverAvatar: guild.icon? guild.icon: "null",
+            serverAvatar: guild.iconURL()? guild.iconURL(): "null",
             serverName: guild.name,
             prefix: "&",
             lang: "fr"

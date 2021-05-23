@@ -37,7 +37,7 @@ module.exports = {
         if (args[1] <= 0 && args[1] !== 'all') return message.channel.send(`[❌] <@${author.id}> ${langF.negate}`)
 
         /* if user did not exist */
-        if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
+        if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account.replace('[prefix]', db_values.GUILD.prefix)}`)
 
         /* if user have not enough money */
         if (USER.money < args[1] && args[1] !== 'all') return message.channel.send(`[❌] <@${author.id}> ${langF.no_money}`)

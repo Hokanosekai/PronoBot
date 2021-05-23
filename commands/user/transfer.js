@@ -1,3 +1,4 @@
+const user_controller = require('../../controllers/controller.user')
 
 const name = 'transfer'
 const category = 'user'
@@ -10,47 +11,36 @@ module.exports = {
     usage: '<money> <@user>',
     args: true,
     admin: false,
-    loaded: false,
+    loaded: true,
 
-    run: async (message, args, client, langFile) => {
-        const authorM = message.member
+    run: async (message, args, client, langFile, db_values, Discord) => {
+        const author = message.member
         const member = message.mentions.members.first()
-        const money = args[0]
-        const guildID = message.guild.id
+
+        const USER = db_values.USER
+
+        const langF = langFile.commands[category][name]
 
         if (args.length !== 2) return
 
-        if (money <= 0) return "pas thune"
+        if (args[0] <= 0) return message.channel.send(`[❌] <@${author.id}> ${langF.negate}`)
 
-        if (!member) return "please mention someone"
+        if (!member) return message.channel.send(`[❌] <@${author.id}> ${langF.no_mention}`)
 
-        u.read({user: authorM.id, guild: guildID}).then(async author => {
+        if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account.replace('[prefix]', db_values.GUILD.prefix)}`)
 
-            if (author.length === 0) return "créer un compte"
+        if (USER.money < args[0]) return message.channel.send(`[❌] <@${author.id}> ${langF.no_money}`)
 
-            if (author.money < money) return "pas assé argent"
+        const MEMBER = await user_controller.get({guild: db_values.GUILD._id, user: member.id}).then(r => {return r[0]}).catch(err => console.error(err))
+        if (MEMBER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_exist}`)
 
-            await u.read({user: member.id, guild: guildID}).then(async mention => {
+        user_controller.update({_id: USER._id, type: 'money', value: USER.money - parseInt(args[0])}).then(() => {
+            message.author.send(`[✅] You send ${args[0]}:coin: to ${MEMBER.userTag}`)
+        }).catch(err => console.error(err))
 
-                if (mention.length === 0) return "existe pas"
-
-                u.money = mention[0].money + money
-                await u.update({uuid: mention[0].uuid, type_update: 'money'}).catch(err => {
-                    console.error(err)
-                })
-
-            }).catch(err => {
-                console.error(err)
-            })
-
-            u.money = author[0].money - money
-            await u.update({uuid: author[0].uuid, type_update: 'money'}).catch(err => {
-                console.error(err)
-            })
-
-        }).catch(err => {
-            console.error(err)
-        })
-
+        const receiver = client.users.cache.get(MEMBER.userID)
+        user_controller.update({_id: MEMBER._id, type: 'money', value: MEMBER.money + parseInt(args[0])}).then(() => {
+            receiver.send(`[✅] You receive ${args[0]}:coin: from ${USER.userTag}`)
+        }).catch(err => console.error(err))
     }
 }

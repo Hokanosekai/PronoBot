@@ -10,14 +10,17 @@ module.exports = {
 
     execute: async (message, client, Discord, mongoose) => {
 
-        if (message.channel.type === 'dm') return
+        if (message.author.bot || message.channel.type === 'dm') return
 
         const tmpG = global.GUILD.find(e => e.serverID === message.guild.id)
-        const GUILD = tmpG? tmpG : {lang: 'fr', prefix: '&'}
+        const GUILD = tmpG? tmpG : {prefix: '&', lang: 'fr', undef: true}
+        //console.log(tmpG, GUILD)
+        if (!message.content.startsWith(GUILD.prefix)) return
 
-        if (message.author.bot || !message.content.startsWith(GUILD.prefix)) return
+        if (GUILD.undef === true) return message.channel.send('Your server is not registered try to evict the bot and then re-add it')
 
-        if (message.guild.id !== '744192330344431797') return message.channel.send(`[❌] <@${message.member.id}> Le bot est en maintenance merci de patienter.`)
+        //let auth_serv = ['744192330344431797', '834793864677425153', '464811353228574731']
+        //if (!auth_serv.includes(message.guild.id)) return message.channel.send(`[❌] <@${message.member.id}> Le bot est en maintenance merci de patienter.`)
 
         let USER = await user_controller.get({guild: GUILD._id, user: message.member.id}).then(u => {
             return u[0]

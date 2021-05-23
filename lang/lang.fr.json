@@ -51,6 +51,13 @@
       "balance": {
         "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
         "success": "Tu as [money] :coin: sur ton compte"
+      },
+      "transfer": {
+        "negate": "Tu ne peux pas transeferer 0 :coin:",
+        "no_mention": "Merci de mentionner un utilisateur",
+        "no_account": ":bank: Vous ne possédez pas de compte, faites '[prefix]open' pour en ouvrir un",
+        "no_money": "Tu ne possèdes pas suffisament de :coin: pour placer ce transfer",
+        "no_exist": "Cet utilisateur na pas de compte"
       }
     },
     "match": {

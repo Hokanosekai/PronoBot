@@ -1,4 +1,4 @@
-const userC = require('../../controllers/controller.user')
+const user_controller = require('../../controllers/controller.user')
 
 const name = 'daily'
 const category = 'user'
@@ -24,9 +24,10 @@ module.exports = {
 
         if (USER.daily_claimed) return message.channel.send(`[❌] <@${author.id}> ${langF.already}`)
 
-        await userC.update({_id: USER._id, type:'money', value: USER.money + 5}).catch(err => console.error(err))
+        await user_controller.update({_id: USER._id, type:'money', value: USER.money + 5}).catch(err => console.error(err))
 
-        await userC.update({_id: USER._id, type: 'daily', value: true}).catch(err => console.error(err))
+        await user_controller.update({_id: USER._id, type: 'daily', value: true}).catch(err => console.error(err))
+        await user_controller.update({_id: USER._id, type: 'avatar', value: message.author.displayAvatarURL({ dynamic: true })}).catch(err => console.error(err))
 
         message.channel.send(`[✅] <@${author.id}> ${langF.success.replace('[plus]', USER.money+5)}`)
     }

@@ -95,7 +95,7 @@ module.exports = {
         })
 
         await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
-        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'match'})
+        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'match'}).catch(err => console.error(err))
 
         if (result === 'nul') return message.channel.send(`[✅] <@${author.id}> ${langF.no_winner.replace('[nul]', capitalize(args[0])).replace('[cote]', cote)}`)
         return message.channel.send(`[✅] <@${author.id}> ${langF.winner.replace('[ville]', capitalize(args[0])).replace('[cote]', cote)}`)

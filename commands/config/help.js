@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const fs = require('fs');
 const pagination = require('discord.js-pagination')
 
@@ -11,14 +10,10 @@ module.exports = {
     admin: false,
     loaded: true,
 
-    run: async (message, args, client) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const { commands } = message.client;
 
-        var prefix = global.guildList.find(e =>
-            e.id_g === message.guild.id
-        )? global.guildList.find(e =>
-            e.id_g === message.guild.id
-        ).prefix : process.env.PREFIX
+        const prefix = db_values.GUILD.prefix
 
         if (!args.length) {
 
