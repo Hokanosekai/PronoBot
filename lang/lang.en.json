@@ -72,12 +72,13 @@
       "create": {
         "already_match": "There is already a match in progress :crossed_flags:",
         "no_time": "Use `&bet <club> <sum>` to bet",
-        "time": "Use `&bet <club> <sum>` to bet\nYou will not be able to bet from : [time]"
+        "time": "Use `&bet <club> <sum>` to bet\nYou will not be able to bet from : [time]",
+        "success": "New match created"
       },
       "delete": {
         "embed_title": "Match deleted!",
         "no_match": "There is no match in progress",
-        "success": ":flag_white: The match has been cancelled by <@[author]>, all bettors have been refunded",
+        "success": ":flag_white: <@[author]> The match has been cancelled, you have been refunded",
         "embed_desc": "The Match **[atk_name] @[atk_cote] - [def_name] @[def_cote]** on the **[s_name]** server has been cancelled."
       },
       "match": {
@@ -149,6 +150,11 @@
         "embed_title": "Do you like the concept ?",
         "add": "Share it with your friends by adding it to your server :",
         "web": "Need more info? Check out our website :"
+      },
+      "setnotif": {
+        "no_guild": "This guild does not exist",
+        "banned": "This guild is banned from the bot",
+        "success": "You have changed the notification role"
       }
     }
   },

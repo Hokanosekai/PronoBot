@@ -59,7 +59,8 @@ module.exports = {
         })
 
         await match_controller.delete({_id: MATCH._id}).then(() => {
-            message.channel.send(`[✅] ${langF.success.replace('[author]', author.id)}`)
+            const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
+            message.channel.send(`[✅] ${langF.success.replace('[author]', n)}`)
         }).catch(err => console.error(err))
     }
 }

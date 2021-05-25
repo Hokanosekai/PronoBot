@@ -9,6 +9,7 @@ const setGuildInfo = async (mongoose) => {
         })
 
         global.GUILD = l
+        console.log(global.GUILD)
     }).catch(err => console.error(err))
 }
 

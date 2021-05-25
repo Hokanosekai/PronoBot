@@ -43,6 +43,8 @@ module.exports = {
         config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'user'}).catch(err => console.error(err))
 
         userC.create(user).then(() => {
+            const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
+            message.member.roles.add(n)
             return message.channel.send(`[✅] <@${author.id}> ${langF.success}`)
         }).catch(err => console.error(err))
 

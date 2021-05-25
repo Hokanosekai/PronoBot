@@ -36,6 +36,9 @@ module.exports.update = ({_id, type, value}) => {
         case 'lang':
             t = {lang: value}
             break
+        case 'notif':
+            t = {notif: value}
+            break
     }
 
     return new Promise((resolve, reject) => {

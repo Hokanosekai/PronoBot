@@ -66,12 +66,13 @@
       "create": {
         "already_match": "Il y a déjà un match en cours :crossed_flags:",
         "no_time": "Utilisez `[prefix]bet <club> <somme>` pour miser",
-        "time": "Utilisez `[prefix]bet <club> <somme>` pour miser \nVous ne pourrez plus parier à partie de : [time]"
+        "time": "Utilisez `[prefix]bet <club> <somme>` pour miser \nVous ne pourrez plus parier à partie de : [time]",
+        "success": "Nouveau match créé"
       },
       "delete": {
         "embed_title": "Match supprimé !",
         "no_match": "Il n'y a pas de match en cours",
-        "success": ":flag_white: Le match à été annulé par <@[author]>, tous les parieurs ont été remboursé",
+        "success": ":flag_white: <@&[author]> Le match à été annulé, vous avez été remboursé",
         "embed_desc": "Le Match **[atk_name] @[atk_cote] - [def_name] @[def_cote]**\nsur le serveur **[s_name]** à été annulé.\nVous avez été remboursé de l'intégralité de votre mise"
       },
       "match": {
@@ -148,6 +149,11 @@
         "no_guild": "Cette guild n'existe pas",
         "banned": "Cette guild est banni du bot",
         "success": "Vous avez changé le prefix du bot pour ["
+      },
+      "setnotif": {
+        "no_guild": "Cette guild n'existe pas",
+        "banned": "Cette guild est banni du bot",
+        "success": "Vous avez changé le role de notification"
       }
     }
   },

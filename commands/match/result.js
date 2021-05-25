@@ -96,7 +96,8 @@ module.exports = {
         await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
         config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'match'}).catch(err => console.error(err))
 
-        if (result === 'nul') return message.channel.send(`[✅] <@${author.id}> ${langF.no_winner.replace('[nul]', capitalize(args[0])).replace('[cote]', cote)}`)
-        return message.channel.send(`[✅] <@${author.id}> ${langF.winner.replace('[ville]', capitalize(args[0])).replace('[cote]', cote)}`)
+        const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
+        if (result === 'nul') return message.channel.send(`[✅] <@&${n}> ${langF.no_winner.replace('[nul]', capitalize(args[0])).replace('[cote]', cote)}`)
+        return message.channel.send(`[✅] <@&${n}> ${langF.winner.replace('[ville]', capitalize(args[0])).replace('[cote]', cote)}`)
     }
 }

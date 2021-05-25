@@ -12,7 +12,8 @@ const modelGuild = new Schema({
     serverAvatar: reqString,
     serverName: reqString,
     prefix: reqString,
-    lang: reqString
+    lang: reqString,
+    notif: String
 })
 
 const model = mongoose.model("guildmodels", modelGuild)

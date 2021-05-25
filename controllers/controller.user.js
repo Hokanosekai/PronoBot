@@ -3,6 +3,7 @@ const user_model = require('../models/model.user')
 module.exports.get = ({_id, guild, user}) => {
     let t = {}
     if (_id) t = {_id: _id}
+    else if (guild && user === undefined) t = {guild_id: guild}
     else if (guild && user) t = {guild_id: guild, userID: user}
 
     return new Promise((resolve, reject) => {
