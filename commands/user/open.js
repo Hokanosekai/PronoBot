@@ -40,7 +40,7 @@ module.exports = {
         }
 
 
-        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'user'}).catch(err => console.error(err))
+        config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'user'}).catch(err => console.error(err))
 
         userC.create(user).then(() => {
             return message.channel.send(`[✅] <@${author.id}> ${langF.success}`)

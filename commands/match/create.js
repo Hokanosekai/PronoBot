@@ -1,6 +1,7 @@
 const {capitalize} = require("../../functions");
 const {ObjectId} = require("bson");
 
+const { matchCard } = require('../../canvas/card.match')
 const match_controller = require('../../controllers/controller.match')
 
 const name = 'create'
@@ -45,9 +46,13 @@ module.exports = {
             })
         }
 
-        match_controller.create(matchData).then(() => {
+        match_controller.create(matchData).then(async () => {
 
-            let matche = new Discord.MessageEmbed()
+            const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]])
+            const attachment = new Discord.MessageAttachment(buffer, args[0]+'-'+args[4]+'.png')
+
+
+            /*let matche = new Discord.MessageEmbed()
                 .setTitle(`**Match** :crossed_flags: ${args[0]} / ${args[4]}`)
                 .setColor('DARK_GREEN')
                 .addFields(
@@ -60,9 +65,9 @@ module.exports = {
 
             if (args[6] === undefined) {
                 matche.setDescription(langF.no_time)
-            }
+            }*/
 
-            message.channel.send(matche)
+            await message.channel.send(attachment)
         }).catch(err => console.error(err))
     }
 }

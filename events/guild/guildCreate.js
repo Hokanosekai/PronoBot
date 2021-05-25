@@ -19,7 +19,7 @@ module.exports = {
         }
 
         guild_controller.create(guildData).catch(err => console.error(err))
-        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'guild'}).catch(err => console.error(err))
+        config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'guild'}).catch(err => console.error(err))
 
         log(`: New server added : ${guild.name} | ${guild.id}`)
     }

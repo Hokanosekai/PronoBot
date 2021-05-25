@@ -90,12 +90,11 @@ module.exports = {
             member.send(del)
 
             bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
-
-            config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'bet'})
+            config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'bet'}).catch(err => console.error(err))
         })
 
         await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
-        config_controller.update({_id: '60a6cd2f0c244b57b7233205', type: 'match'}).catch(err => console.error(err))
+        config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'match'}).catch(err => console.error(err))
 
         if (result === 'nul') return message.channel.send(`[✅] <@${author.id}> ${langF.no_winner.replace('[nul]', capitalize(args[0])).replace('[cote]', cote)}`)
         return message.channel.send(`[✅] <@${author.id}> ${langF.winner.replace('[ville]', capitalize(args[0])).replace('[cote]', cote)}`)

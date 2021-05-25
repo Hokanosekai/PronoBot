@@ -2,7 +2,7 @@ const guild_controller = require('../../controllers/controller.guild')
 const user_controller = require('../../controllers/controller.user')
 
 module.exports = {
-    name: "setguilds",
+    name: "setusers",
     category: 'Admin',
     description: "Set the balance of an user",
     aliases: null,

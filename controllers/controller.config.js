@@ -4,7 +4,7 @@ module.exports.get = () => {
     return new Promise((resolve, reject) => {
         config_model.find({}, (err, docs) => {
             if (err) return reject(err)
-            if (err) return resolve(docs)
+            return resolve(docs)
         })
     })
 }
