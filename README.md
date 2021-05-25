@@ -13,11 +13,11 @@ If you have questions or returns do it on our [Discord Server](https://discord.g
 
 All Bot's commands are split in 5 categories 
 
-- #### [User](#User)
-- #### [Match](#Match)
-- #### [Config](#Config)
-- #### [General](#General)
-- #### [Admin](#Admin)
+- #### [User Commands](#User)
+- #### [Match Commands](#Match)
+- #### [Config Commands](#Config)
+- #### [General Commands](#General)
+- #### [Admin Commands](#Admin)
 
 ****
 
