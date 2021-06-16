@@ -16,6 +16,8 @@ const modelUser = new Schema({
     win: {type: "Number"},
     loose: {type: "Number"},
     game: {type: "Number"},
+    level: {type: "Number"},
+    xp: {type: "Number"},
     gain_tot: {type: "Number"},
     mise_tot: {type: "Number"},
     daily_claimed: {type: "Boolean"}

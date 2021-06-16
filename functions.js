@@ -1,6 +1,27 @@
-const {guilds_list} = require("./guildConfig");
-module.exports = {
-    capitalize: (str) => {
-        return str.replace(/^\w/, c => { return c.toUpperCase()})
-    }
+module.exports.capitalize = (str) => {
+    return str.replace(/^\w/, c => { return c.toUpperCase()})
+}
+
+module.exports.addXp = (cote, mise, money) => {
+
+    console.log('BASE', mise, money, cote)
+    const m = mise/(money + mise)
+
+    console.log('m', m)
+    const l = cote * 2 * Math.exp(1 + m)
+
+    console.log('xp', l)
+    return l
+}
+
+module.exports.removeXp = (cote, mise, money) => {
+
+    console.log('BASE', mise, money, cote)
+    const m = mise/(money + mise)
+
+    console.log('m', m)
+    const l = Math.exp(1 - m - cote) * (cote ** 2) * (1 - (1 / (1 + cote / 4))) * 100
+
+    console.log('xp', l)
+    return -l
 }

@@ -81,6 +81,12 @@ module.exports.update = ({_id, type, value}) => {
         case 'avatar':
             t = {userAvatar: value}
             break;
+        case 'xp':
+            t = {xp: value}
+            break;
+        case 'level':
+            t = {level: value}
+            break;
     }
 
     return new Promise(async (resolve, reject) => {

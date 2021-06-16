@@ -3,6 +3,12 @@ require('dotenv').config({path: '/root/botsdiscord/pronobot/.env'});
 
 let token = process.env.DISCORD_TOKEN
 
+const lvl = {
+
+}
+
+global.levels = lvl
+
 const mongo = require('./mongo')
 
 /* Setup new discord.js client */
