@@ -9,7 +9,7 @@ module.exports = {
     usage: '<@user> <new balance>',
     args: false,
     admin: true,
-    loaded: true,
+    loaded: false,
 
     run: async (message, args, client, langFile, db_values, Discord) => {
 
