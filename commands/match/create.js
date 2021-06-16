@@ -49,7 +49,7 @@ module.exports = {
         match_controller.create(matchData).then(async () => {
 
             const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
-            await message.channel.send(`[✅] ${langF.success}`) //<@&${n}>
+            //await message.channel.send(`[✅] ${langF.success}`) //<@&${n}>
 
             const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]])
             const attachment = new Discord.MessageAttachment(buffer, args[0]+'-'+args[4]+'.png')
