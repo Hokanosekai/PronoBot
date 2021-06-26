@@ -18,19 +18,7 @@ module.exports = {
         const c = await client.users.cache.get(db_values.USER.userID)
         console.log(c.flags)
 
-        const U = db_values.USER
-        const taux = U.win * 100 / U.game
-
-        const buffer = await matchCard(
-            message.author.tag,
-            message.author.displayAvatarURL({ format: 'png' }),
-            {win: U.win,
-                loose: U.loose,
-                game: U.game,
-                stake: U.mise_tot,
-                gain: U.gain_tot,
-                taux: `${taux}%`}
-            )
+        const buffer = await matchCard(message.author.tag, message.author.displayAvatarURL({ format: 'png' }), 1)
         const attachment = new Discord.MessageAttachment(buffer, 'test.png')
 
         message.channel.send(attachment)

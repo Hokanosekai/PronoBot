@@ -22,8 +22,8 @@ module.exports = {
 
         await userC.delete({_id: db_values.USER._id})
             .then(() => {
-                const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
-                message.member.roles.remove(n)
+                const n = db_values.GUILD.notif? db_values.GUILD.notif : null
+                if (n !== null) message.member.roles.remove(n);
                 message.channel.send(`[✅] <@${author.id}> ${langF.success}`)
             })
             .catch(err => console.error(err))

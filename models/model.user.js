@@ -16,11 +16,11 @@ const modelUser = new Schema({
     win: {type: "Number"},
     loose: {type: "Number"},
     game: {type: "Number"},
-    level: {type: "Number"},
-    xp: {type: "Number"},
     gain_tot: {type: "Number"},
     mise_tot: {type: "Number"},
-    daily_claimed: {type: "Boolean"}
+    daily_claimed: {type: "Boolean"},
+    voted: {type: "Number"},
+    nb_vote: {type: "Number"}
 })
 
 const model = mongoose.model("usermodels", modelUser)

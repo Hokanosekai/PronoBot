@@ -81,11 +81,11 @@ module.exports.update = ({_id, type, value}) => {
         case 'avatar':
             t = {userAvatar: value}
             break;
-        case 'xp':
-            t = {xp: value}
+        case 'nb_vote':
+            t = {nb_vote: value}
             break;
-        case 'level':
-            t = {level: value}
+        case 'voted':
+            t = {voted: value}
             break;
     }
 

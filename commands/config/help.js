@@ -19,14 +19,16 @@ module.exports = {
 
             const pages = []
 
-            const folders = fs.readdirSync('/root/botsdiscord/pronobot/commands').filter(folder => folder)
+            const folders = fs.readdirSync(process.env.BOT_PATH+'/commands').filter(folder => folder !== 'admin')
             for(const folder of folders){
                 let help = new Discord.MessageEmbed()
                     .setTitle(`**Commande** \`${prefix}help\``)
                     .setColor('#0099ff')
 
-                const files = fs.readdirSync(`/root/botsdiscord/pronobot/commands/${folder}`).filter(file => file.endsWith('.js'))
-                const emotes = fs.readdirSync(`/root/botsdiscord/pronobot/commands/${folder}`).filter(file => file.endsWith('.json'))
+
+
+                const files = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.js'))
+                const emotes = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.json'))
 
                 const { emote, name, loaded } = require(`../../commands/${folder}/${emotes}`)
 

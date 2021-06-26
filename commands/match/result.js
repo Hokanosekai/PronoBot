@@ -1,4 +1,4 @@
-const {capitalize, addXp, removeXp} = require('../../functions')
+const {capitalize} = require('../../functions')
 
 const bet_controller = require('../../controllers/controller.bet')
 const user_controller = require('../../controllers/controller.user')
@@ -52,12 +52,8 @@ module.exports = {
         }).catch(err => console.error(err))
 
 
-        for (const bet of bets) {
+        bets.forEach(bet => {
             const bet_info = JSON.parse(bet.info)
-            let U
-            U = await user_controller.get({_id: bet.user_id}).then(b => {
-                return b[0]
-            }).catch(err => console.error(err))
 
             let del = new Discord.MessageEmbed()
                 .setTitle(langF.embed_title)
@@ -73,57 +69,31 @@ module.exports = {
                     .replace('[s_name]', bet.guild_id.serverName)
                 )
 
-            /* IF USER WIN */
             if (bet_info.club === result) {
-                /* Update User Money */
-                user_controller.update({_id: U._id, type: 'money', value: U.money + parseInt(bet_info.gain)}).catch(err => console.error(err))
-
-                /* Update User Win */
-                user_controller.update({_id: U._id, type: 'win', value: U.win + 1}).catch(err => console.error(err))
-
-                /* Update User Gain Total */
-                user_controller.update({_id: U._id, type: 'gain', value: U.gain_tot + parseInt(bet_info.gain)}).catch(err => console.error(err))
-
-                /* Add XP */
-                //console.log(addXp(parseInt(bet_info.cote), parseInt(bet_info.somme), U.money))
-                user_controller.update({_id: U._id, type: 'xp', value: U.xp + addXp(parseFloat(bet_info.cote), parseFloat(bet_info.somme), U.money)}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'money', value: USER.money + parseFloat(bet_info.gain)}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'win', value: USER.win + 1}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'gain', value: USER.gain_tot + parseFloat(bet_info.gain)}).catch(err => console.error(err))
 
                 del.setDescription(langF.win_msg.replace('[gain]', bet_info.gain)
                     .replace('[ville]', bet_info.club)
                     .replace('[s_name]', bet.guild_id.serverName)
                 )
 
-            /* IF USER LOOSE */
             } else {
-                /* Remove XP */
-                //console.log(removeXp(parseInt(bet_info.cote), parseInt(bet_info.somme), U.money))
-                user_controller.update({_id: U._id, type: 'xp', value: U.xp + removeXp(parseFloat(bet_info.cote), parseFloat(bet_info.somme), U.money)}).catch(err => console.error(err))
-
-                /* Update User Loose */
-                user_controller.update({_id: U._id, type: 'loose', value: U.loose + 1}).catch(err => console.error(err))
+                user_controller.update({_id: USER._id, type: 'loose', value: USER.loose + 1}).catch(err => console.error(err))
             }
 
-            /* Update User Game */
-            user_controller.update({_id: U._id, type: 'game', value: U.game + 1}).catch(err => console.error(err))
+            user_controller.update({_id: USER._id, type: 'game', value: USER.game + 1}).catch(err => console.error(err))
+            user_controller.update({_id: USER._id, type: 'mise', value: USER.mise_tot + parseFloat(bet_info.somme)}).catch(err => console.error(err))
 
-            /* Update User Mise Total */
-            user_controller.update({_id: U._id, type: 'mise', value: U.mise_tot + parseInt(bet_info.somme)}).catch(err => console.error(err))
+            const member = client.users.cache.get(USER.userID)
+            member.send(del)
 
-
-            const member = client.users.cache.get(U.userID)
-            if (member !== undefined) member.send(del)
-
-            /* Delete User Bet */
             bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
-
-            /* Update Config Number Bet */
             config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'bet'}).catch(err => console.error(err))
-        }
+        })
 
-        /* Delete Mach  */
         await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
-
-        /* Update Config Number Match */
         config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'match'}).catch(err => console.error(err))
 
         const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id

@@ -60,6 +60,18 @@
         "no_exist": "Cet utilisateur na pas de compte",
         "send": "[✅] You send [money]:coin: to [user]",
         "receive": "[✅] You receive [money]:coin: from [user]"
+      },
+      "coinflip":{
+        "negate" : "Vous ne pouvez pas miser 0 :coin :",
+        "no_account" : ":bank : Vous n'avez pas de compte, faites '&open' pour en ouvrir un",
+        "no_money" : "Vous n'avez pas assez de :coin : pour placer ce pari",
+        "no_usage" : "Veuillez saisir la face de la pièce, comme la tête ou la queue"
+      },
+      "vote": {
+        "has_voted" : "Merci d'avoir voté. Nous vous avons crédité de 10 :coin :",
+        "not_voted" : "Vous pourrez voter sur Top.gg dans [time]",
+        "next_time" : "Vous pourrez obtenir votre récompense dans [time]",
+        "need_vote" : "Allez voter pour le bot sur Top.gg pour obtenir vos 10 :coin :"
       }
     },
     "match": {

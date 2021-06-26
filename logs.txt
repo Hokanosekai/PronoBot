@@ -1,0 +1,243 @@
+2021/06/16 16:02:38: match  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:10:37: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:11:09: topmoney  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:11:21: topgame  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:11:30: toploose  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:11:39: topwin  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:13:13: create Italie,@1.7,nul,@3.9,Suisse,@6.8 / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 16:13:37: bet italie,all / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/16 19:56:34: New server added : Top.gg Verification Center | 333949691962195969
+2021/06/16 19:56:38: help  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:56:53: servinfo  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:56:59: botinfo  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:01: share  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:15: topgame  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:17: create  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:24: balance  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:26: daily  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:28: mybets  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:31: open  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:33: balance  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 19:57:35: daily  / Nicole#5562 | 333949691962195969 - Top.gg Verification Center
+2021/06/16 20:11:12: New server added : Hell | 854783726797062205
+2021/06/17 18:22:16: daily  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/17 19:00:48: result italie / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/17 22:40:12: topwin  / BraxyVL15__OUωOo#1112 | 738325508927782933 - DJAMS LAND 💫
+2021/06/17 23:25:38: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/18 12:18:47: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/18 17:16:37: New server added : 🍀 MYSTERIOUS 🍀 | 825348263431503923
+2021/06/18 17:17:48: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 05:13:16: New server added : Testbot | 855319043111256074
+2021/06/19 10:07:31: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 10:10:38: create Hongrie,@13,nul,@5.8,France,@1.3,2021-06-19T15:00:00 / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 11:13:03: New server added : Ether | 737671093367734346
+2021/06/19 11:14:28: help  / Ether#8271 | 737671093367734346 - Ether
+2021/06/19 11:15:15: help &role / Ether#8271 | 737671093367734346 - Ether
+2021/06/19 11:15:30: help &canvas / Ether#8271 | 737671093367734346 - Ether
+2021/06/19 11:55:25: bet france,all / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:13:15: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:13:23: bet France,all / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:23:13: daily  / Flywizz#9076 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:23:34: topmoney  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:23:48: bal  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 12:24:52: bet france,20 / Flywizz#9076 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 15:40:36: daily  / MȺɍøᵾᵾᵾ#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 15:40:54: bet  / MȺɍøᵾᵾᵾ#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 15:41:09: bet France,15 / MȺɍøᵾᵾᵾ#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:07:55: delete  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:08:14: bal  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:08:23: balance  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:09:19: topmoney  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:10:04: help  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:10:27: topmoney  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:10:40: bal  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:10:50: bal  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:12:35: setbalance <@!319511063135780865>,255 / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/19 17:21:03: topmoney  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/20 03:25:02: daily  / Flywizz#9076 | 738325508927782933 - DJAMS LAND 💫
+2021/06/20 08:02:42: New server added : !治怜慰 szervere | 822789099123376178
+2021/06/20 08:03:13: help  / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 08:03:46: setprefix ? / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 08:04:00: create  / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 08:05:08: create Magyarország,<@660852928348946443>,Németország,<@723604313360040037> / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 08:05:17: match  / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 08:05:28: help  / !治怜慰#2626 | 822789099123376178 - !治怜慰 szervere
+2021/06/20 10:27:45: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/21 11:52:50: daily  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫
+2021/06/21 13:04:52: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/21 13:55:20: New server added : test | 485048384789676042
+2021/06/21 13:55:38: help  / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 13:55:49: help role / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 13:56:01: help &role / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 13:56:08: help canvas / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 13:56:35: create  / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 14:00:02: create Ukraine,@3.7,Nul,@2.05,Autriche,@3.8 / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 14:00:21: match  / Mitibus#9748 | 485048384789676042 - test
+2021/06/21 16:02:29: daily  / Flywizz#9076 | 738325508927782933 - DJAMS LAND 💫
+2021/06/21 16:08:46: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/22 15:22:56: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 08:49:03: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 08:54:56: create Portugal,@3.7,nul,@3.2,France,@2.3 / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 08:55:24: balance  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 08:55:38: bet france,20 / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 12:58:20: bet France,100 / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 12:58:24: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/23 23:14:21: New server added : Test server FrW | 750641526807330867
+2021/06/23 23:16:14: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:16:33: create  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:20:45: create France,1.40,nul,3.90,Suisse,7.25,2021-28-06T21:00:00 / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:21:12: match  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:21:39: result  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:21:55: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:22:47: help role / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:02: setlang  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:11: setlang FR / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:24: topgame  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:41: bet  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:53: bet Suisse,10 / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:23:58: open  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:24:07: bet Suisse,10 / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:25:14: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:25:27: result Suisse / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:27:57: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:28:32: help setbalance / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:28:42: servinfo  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:28:52: botinfo  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:29:45: setnotif  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:30:38: setnotif <@&857371926817144872> / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:31:00: match Belgique,Portugal / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:31:11: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:31:20: create  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:31:41: create Belgique,Portugal / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:32:25: match  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:32:37: balance  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:33:16: mybets  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:34:38: stats  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:34:54: transfer  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:35:05: transfer 10,<@!689152658577031304> / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:35:31: help  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/23 23:38:20: New server added : [FrW] The frenzied warriors | 730084894482628609
+2021/06/24 09:03:00: delete  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/24 09:09:36: daily  / BraxyVL15__OUωOo#1112 | 738325508927782933 - DJAMS LAND 💫
+2021/06/24 10:43:17: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/24 10:56:57: match Pays,de,Galles,5,Nul,3,Danemark,2 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 10:57:48: create Pays,de,Galles,5,Nul,3,Danemark,2,2021-06-26T18:00:00 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 10:58:00: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 10:58:08: delete  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 10:59:11: New server added : [FrW] The frenzied warriors | 730084894482628609
+2021/06/24 11:00:55: create Walles,5,Nul,3,Danemark,2,2021-06-26T18:00:00 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:01:11: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:01:35: setlang FR / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:01:42: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:02:00: delete  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:05:56: create Walles,5,Nul,3,Danemark,2,2021-26-06T18:00:00 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:07:08: open  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:07:22: bet Walles,5 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 11:08:09: result Walles / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 12:38:37: daily  / MaGiC#6668 | 738325508927782933 - DJAMS LAND 💫
+2021/06/24 14:31:01: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:31:09: create  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:33:53: create Walles,@5,20,Nul,@3,05,Danemark,@1,80,2021-0626T18:00:00 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:34:11: help  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:34:42: mybets  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:35:08: daily  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:35:33: bet Danemark / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:35:39: mybets  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:35:50: bet  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:35:57: bet Danemark,5 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:36:28: help  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:36:50: setnotif <@&857376925214965811> / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:37:13: result Danemark / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:38:21: mybets  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:38:52: stats  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:49:56: help  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:50:06: share  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:51:00: topwin  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:51:10: topmoney  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:52:18: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:52:39: mybets  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:53:03: close  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 14:53:09: open  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:07:04: create Pays,de,Galles,@5,Nul,@3,Danemark,@2,2021-06-26T18.00:00 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:08:45: delete  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:10:16: create PaysDeGalles,@5,Nul,@3,Danemark,@2,2021-06-26T18:00:00 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:10:35: open  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:10:55: bet Gagnant / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:11:10: bet Danemark / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:12:48: bet Danemark / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:13:52: bet Danemark,5 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:14:39: match  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:15:11: result Danemark / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:17:27: help  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:18:26: topwin  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:29:16: match  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 15:29:48: create FCB,@1,Nul,@2,AFF,@3 / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 15:30:01: bet AFF / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 15:30:10: match  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 15:30:43: close  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 15:31:07: close  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:55:32: delete  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:55:43: help  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 15:56:53: close  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:17:58: help  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:18:14: topmoney  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:18:28: open  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:19:35: create PaysDeGalles,@5,Nul,@3,Danemark,@2,2021-06-26T18:00:00 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:20:30: create Italie,@2,Nul,@4,Autriche,@7,2021-06-26T21:00:00 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:21:44: close  / Sim-mco#1929 | 750641526807330867 - Test server FrW
+2021/06/24 16:24:13: match  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:24:27: create  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:26:18: create PaysBas,@2,Nul,@3,RépubliqueTchèque,@5,2021-06-27T18:00:00 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:27:02: create Test,@1,Test,@1,Test,@1 / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:34:30: open  / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/24 16:34:40: help  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/24 16:38:52: help  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/24 16:46:44: bet Danemark,3 / M.Zoyah#6760 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 00:15:47: open  / mamene#9379 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 00:25:10: bet Danemark,3 / mamene#9379 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 00:32:15: mybets  / Sim-mco#1929 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 13:38:37: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/25 14:51:28: open  / coco06#8091 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 14:55:17: bet Danemark,5 / coco06#8091 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 15:07:16: bet PaysGagnant,Mise / Barantor#4492 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 15:07:31: bet PaysGagnant,Mise / Barantor#4492 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 15:08:54: open  / Barantor#4492 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 15:09:13: bet PaysGagnant,Mise / Barantor#4492 | 730084894482628609 - [FrW] The frenzied warriors
+2021/06/25 19:22:28: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:24:42: share  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:26:44: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:27:26: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:28:25: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:28:31: money  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:30:31: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:30:43: money  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:30:50: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:30:56: money  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:36:04: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:36:16: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:42:01: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 19:42:49: vote  / Hokanosekai#2292 | 744192330344431797 - BOT
+2021/06/25 20:14:08: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/25 20:17:46: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/25 20:19:14: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/25 20:20:27: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/25 20:29:26: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/25 20:30:50: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/25 20:31:00: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:20:14: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:21:35: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:21:43: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:22:42: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:22:49: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:22:57: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:23:32: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:24:16: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:35:37: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:36:02: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:36:12: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:36:52: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:38:32: vote  / Hokanosekai#0001 | 744192330344431797 - BOT
+2021/06/26 11:38:41: vote  / hokanosekai#0851 | 744192330344431797 - BOT
+2021/06/26 11:56:57: daily  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/26 11:57:00: vote  / Samc#8315 | 738325508927782933 - DJAMS LAND 💫
+2021/06/26 12:09:15: vote  / Hokanosekai#0001 | 738325508927782933 - DJAMS LAND 💫

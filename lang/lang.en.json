@@ -66,6 +66,12 @@
         "no_account": ":bank: You don't have an account, do '&open' to open one",
         "no_money": "You don't have enough :coin: to place this bet",
         "no_usage": "Please enter face of coin like head or tail"
+      },
+      "vote": {
+        "has_voted": "Thanks for voting. We've credited you with 10 :coin:",
+        "not_voted": "You can vote on Top.gg in [time]",
+        "next_time": "You can get your reward in [time]",
+        "need_vote": "Go vote for the bot on Top.gg to get your 10 :coin:"
       }
     },
     "match": {
