@@ -1,6 +1,10 @@
 const Canvas = require('canvas')
 
-module.exports.matchCard = async (user, avatar, stats) => {
+module.exports.matchCard = async (author, stats) => {
+
+    const user = author.tag
+    const avatar = author.displayAvatarURL({format: 'png'})
+    const presence = author.presence.status
 
     Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
     Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
@@ -23,12 +27,26 @@ module.exports.matchCard = async (user, avatar, stats) => {
     ctx.fillText('Statistics', 350, 40)
 
     /* Set User Avatar */
+
+    let statusColor = '#292929';
+    switch (presence) {
+        case 'dnd':
+            statusColor = '#ff0000'
+            break
+        case 'online':
+            statusColor = '#10ff00'
+            break
+        case 'offline':
+            statusColor = '#444444'
+            break
+    }
+
     ctx.save()
     const avatarI = await Canvas.loadImage(avatar)
     ctx.beginPath();
     ctx.arc(50, 110, 40, 0, 2 * Math.PI, false);
     ctx.lineWidth = 6;
-    ctx.strokeStyle = '#292929';
+    ctx.strokeStyle = statusColor;
     ctx.stroke();
     ctx.clip()
     ctx.drawImage(avatarI, 10, 70, 80, 80)
