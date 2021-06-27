@@ -7,6 +7,8 @@ Default language of the bot is : **fr** [fr, en]
 Our Website [pronobot.top](https://pronobot.top)  
 If you have questions or returns do it on our [Discord Server](https://discord.gg/rbrPpWbEnV)
 
+Vote for the bot on [Top.gg](https://top.gg/bot/835256483356737546)
+
 ****
 
 ### Commands
@@ -18,6 +20,8 @@ All Bot's commands are split in 5 categories
 - #### [Config Commands](#Config)
 - #### [General Commands](#General)
 - #### [Admin Commands](#Admin)
+
+You can also find a tutorial with the arguments of each order on our website
 
 ****
 
@@ -38,6 +42,7 @@ These commands are available to all users with an account
 
 Commands in progress :
 - myinfo
+- vote
 
 #### Example :
 
@@ -87,6 +92,14 @@ to all betters
 Define the winner of a match with `> &result <winning club>`, numbers of game, loose, win and 
 money is automatically change
 
+For the match creation message the bot will no longer send an embed but a png image generated with Canvas  
+
+- create command when a new match is set up
+  ![img.png](images/new_match.png)
+
+- match command to see current match
+![img.png](images/current_match.png)
+
 ****
 
 ### Config
@@ -129,7 +142,7 @@ We can also call this category "Top" because it gathers the commands allowing to
 
 ### Admin
 
-Ongoing development
+These commands are usable only by the bot owners, maybe for server admins in the future.
 
 ****
 
