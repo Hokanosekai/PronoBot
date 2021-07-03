@@ -1,5 +1,5 @@
-const log = require('../../log')
-const {setGuildInfo} = require("../../guildConfig");
+const log = require('../../util/log')
+const {setGuildInfo} = require("../../util/guildConfig");
 const guild_controller = require('../../controllers/controller.guild')
 const config_controller = require('../../controllers/controller.config')
 

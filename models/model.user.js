@@ -19,6 +19,8 @@ const modelUser = new Schema({
     gain_tot: {type: "Number"},
     mise_tot: {type: "Number"},
     daily_claimed: {type: "Boolean"},
+    xp: {type: "Number"},
+    level: {type: "Number"},
     voted: {type: "Number"},
     nb_vote: {type: "Number"}
 })

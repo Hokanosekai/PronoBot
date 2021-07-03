@@ -1,4 +1,4 @@
-const {setGuildInfo} = require("../../guildConfig");
+const {setGuildInfo} = require("../../util/guildConfig");
 
 const guild_controller = require('../../controllers/controller.guild')
 const user_controller = require('../../controllers/controller.user')

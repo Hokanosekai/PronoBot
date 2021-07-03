@@ -109,7 +109,7 @@ For the match creation message the bot will no longer send an embed but a png im
  - setprefix
  - setnotif
 
-Other commands is available for every people in each server
+# Other commands is available for every people in each server
 - botinfo
 - servinfo
 - share

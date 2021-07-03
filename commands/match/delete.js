@@ -1,4 +1,4 @@
-const {capitalize} = require("../../functions");
+const {capitalize} = require("../../util/functions");
 
 const bet_controller = require('../../controllers/controller.bet')
 const user_controller = require('../../controllers/controller.user')
@@ -23,7 +23,6 @@ module.exports = {
         const langF = langFile.commands[category][name]
 
         const MATCH = db_values.MATCH
-        const USER = db_values.USER
 
         let del = new Discord.MessageEmbed()
             .setTitle(langF.embed_title)
@@ -41,21 +40,26 @@ module.exports = {
 
         await bets.forEach((bet) => {
 
-            const bet_info = JSON.parse(bet.info)
-            const member = client.users.cache.get(USER.userID)
+            user_controller.get({_id: bet.user_id}).then(u => {
+                const USER = u[0]
 
-            user_controller.update({_id: USER._id, type:'money', value: USER.money + parseInt(bet_info.somme)}).then(() => {
+                const bet_info = JSON.parse(bet.info)
+                const member = client.users.cache.get(USER.userID)
 
-                member.send(del.setDescription(langF.embed_desc.replace('[atk_name]', capitalize(match_info.atk_n))
-                    .replace('[atk_cote]', match_info.atk_c)
-                    .replace('[def_name]', capitalize(match_info.def_n))
-                    .replace('[def_cote]', match_info.def_c)
-                    .replace('[s_name]', bet.guild_id.serverName)
-                ))
+                user_controller.update({_id: USER._id, type:'money', value: USER.money + parseInt(bet_info.somme)}).then(() => {
 
-                bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
+                    member.send(del.setDescription(langF.embed_desc.replace('[atk_name]', capitalize(match_info.atk_n))
+                        .replace('[atk_cote]', match_info.atk_c)
+                        .replace('[def_name]', capitalize(match_info.def_n))
+                        .replace('[def_cote]', match_info.def_c)
+                        .replace('[s_name]', bet.guild_id.serverName)
+                    ))
 
-            }).catch(err => console.error(err))
+                    bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
+
+                }).catch(err => console.error(err))
+            });
+
         })
 
         await match_controller.delete({_id: MATCH._id}).then(() => {

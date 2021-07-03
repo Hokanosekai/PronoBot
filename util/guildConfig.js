@@ -1,4 +1,4 @@
-const guildC = require('./controllers/controller.guild')
+const guildC = require('../controllers/controller.guild')
 
 global.GUILD = []
 const setGuildInfo = async (mongoose) => {

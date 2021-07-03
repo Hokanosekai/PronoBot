@@ -22,6 +22,6 @@ module.exports.removeXp = (cote, mise, money) => {
     console.log('m', m)
     const l = Math.exp(1 - m - cote) * (cote ** 2) * (1 - (1 / (1 + cote / 4))) * 100
 
-    console.log('xp', l)
+    console.log('xp', -l)
     return -l
 }

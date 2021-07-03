@@ -1,4 +1,4 @@
-const {setGuildInfo} = require("../../guildConfig");
+const {setGuildInfo} = require("../../util/guildConfig");
 
 const guild_controller = require('../../controllers/controller.guild')
 
@@ -10,7 +10,7 @@ module.exports = {
     category,
     description: 'Change the default language of the bot',
     aliases: null,
-    usage: '<lang [a-z]*2>',
+    usage: '<lang (english/en - french/fr)>',
     args: true,
     admin: true,
     loaded: true,
@@ -18,13 +18,36 @@ module.exports = {
     run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.author
 
-        const langF = langFile.commands[category][name]
+        const langF = langFile.commands[category][name] 
 
-        const abbrs = []
-        langF.langs.forEach(a => {abbrs.push(a.abbr)})
-        if (!abbrs.includes(args[0].toLowerCase())) return message.channel.send(`[❌] <@${author.id}> ${langF.no_lang}`)
+        var t
+        switch (args[0].toLowerCase()) {
+            case 'english':
+                t = 'en';
+                break;
+            case 'en':
+                t = 'en';
+                break;
+            case 'anglais':
+                t = 'en';
+                break;
+            case 'fr':
+                t = 'fr';
+                break;
+            case 'french':
+                t = 'fr';
+                break;
+            case 'francais':
+                t = 'fr';
+                break;
+            default:
+                t = null;
+                break;
+        }
 
-        guild_controller.update({_id: db_values.GUILD._id, type:'lang', value:args[0].toLowerCase()}).then(() => {
+        if (t === null) return message.channel.send(`[❌] <@${author.id}> ${langF.no_lang}`)
+
+        guild_controller.update({_id: db_values.GUILD._id, type:'lang', value:t}).then(() => {
             setGuildInfo()
             return message.channel.send(`[✅] <@${author.id}> ${langF.success}`)
         })

@@ -1,4 +1,4 @@
-const {capitalize} = require("../../functions");
+const {capitalize} = require("../../util/functions");
 const {ObjectId} = require("bson");
 
 const { matchCard } = require('../../canvas/card.match')

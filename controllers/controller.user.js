@@ -87,6 +87,9 @@ module.exports.update = ({_id, type, value}) => {
         case 'voted':
             t = {voted: value}
             break;
+        case 'xp':
+            t = {xp: value}
+            break;
     }
 
     return new Promise(async (resolve, reject) => {

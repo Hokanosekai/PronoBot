@@ -1,4 +1,4 @@
-const log = require('../../log')
+const log = require('../../util/log')
 
 const user_controller = require('../../controllers/controller.user')
 const match_controller = require('../../controllers/controller.match')

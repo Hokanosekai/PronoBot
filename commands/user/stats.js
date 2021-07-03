@@ -1,3 +1,5 @@
+const {getLvl} = require('../../util/levels')
+
 const name = 'stats'
 const category = 'user'
 
@@ -29,6 +31,9 @@ module.exports = {
 
         let taux = USER.game? (USER.win * 100) / USER.game : 0
 
+        const level = getLvl(undefined, USER.xp)
+        console.log(level)
+
         statsCommand.addFields(
             { name: langF.nb_win, value: ':trophy: '+ USER.win, inline: true },
             { name: langF.nb_loose, value: ':poop: ' + USER.loose, inline: true },
@@ -36,6 +41,7 @@ module.exports = {
             { name: langF.taux, value: ':bar_chart: ' + Math.round(taux*100)/100+'%', inline: true },
             { name: langF.gain, value: USER.gain_tot + ' :coin:', inline: true },
             { name: langF.mise, value: USER.mise_tot + ' :coin:', inline: true },
+            { name: 'xp', value: USER.xp +' '+ level.name +' '+ level.nb +' '+ level.xp[1] , inline: true },
         )
         message.channel.send(statsCommand);
     }

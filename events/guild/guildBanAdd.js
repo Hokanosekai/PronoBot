@@ -1,5 +1,5 @@
 
-const log = require('../../log')
+const log = require('../../util/log')
 module.exports = {
     name: "guildBanAdd",
     loaded: false,

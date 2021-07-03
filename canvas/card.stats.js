@@ -1,6 +1,7 @@
 const Canvas = require('canvas')
+const {getLvl} = require("../util/levels");
 
-module.exports.matchCard = async (author, stats) => {
+module.exports.statCard = async (author, USER) => {
 
     const user = author.tag
     const avatar = author.displayAvatarURL({format: 'png'})
@@ -28,16 +29,20 @@ module.exports.matchCard = async (author, stats) => {
 
     /* Set User Avatar */
 
-    let statusColor = '#292929';
+    console.log(presence)
+    let statusColor = '#747F8D';
     switch (presence) {
         case 'dnd':
-            statusColor = '#ff0000'
+            statusColor = '#ED4245'
             break
         case 'online':
-            statusColor = '#10ff00'
+            statusColor = '#3BA55D'
             break
         case 'offline':
-            statusColor = '#444444'
+            statusColor = '#747F8D'
+            break
+        case 'idle':
+            statusColor = '#FAA81A'
             break
     }
 
@@ -45,7 +50,7 @@ module.exports.matchCard = async (author, stats) => {
     const avatarI = await Canvas.loadImage(avatar)
     ctx.beginPath();
     ctx.arc(50, 110, 40, 0, 2 * Math.PI, false);
-    ctx.lineWidth = 6;
+    ctx.lineWidth = 7;
     ctx.strokeStyle = statusColor;
     ctx.stroke();
     ctx.clip()
@@ -59,12 +64,73 @@ module.exports.matchCard = async (author, stats) => {
     ctx.textBaseline = "middle"
     ctx.fillText(user, 100, 110)
 
+    /* Set XP Bar */
+    ctx.save()
+    ctx.beginPath()
 
-    /* Set Middle Bar */
+    ctx.arc(50,200,20,Math.PI/2, -Math.PI/2, false)
+    ctx.fillStyle = '#747474'
+    ctx.fill();
+
+    ctx.fillStyle = '#747474'
+    ctx.fillRect(50, 180, 600, 40)
+
+    ctx.arc(650,200,20,-Math.PI/2, Math.PI/2, false)
+    ctx.fillStyle = '#747474'
+    ctx.fill()
+    ctx.clip()
+    ctx.save()
+    ctx.beginPath()
+
+    const level = getLvl(undefined, USER.xp);
+    const percent = Math.floor(( (USER.xp - level.xp[0]) * 100 ) / (level.xp[1] - level.xp[0]) )
+    console.log(percent, (percent/ 100) * 600)
+    ctx.fillStyle = '#04B884FF'
+    ctx.fillRect(30, 180, ((percent/ 100) * 600)-25, 45)
+
+    ctx.arc(((percent/ 100) * 600),200,20,-Math.PI/2, Math.PI/2, false)
+    ctx.fillStyle = '#04B884FF'
+    ctx.fill()
+
+    ctx.restore()
+
+
+
+
+    /* Set colored XP Bar */
+    /*2%*/
+    /*ctx.save()
+    ctx.beginPath()
+    ctx.arc(50,200,20,Math.PI/2, -Math.PI/2, false)
+    ctx.fillStyle = '#009708'
+    ctx.fill();
+    ctx.clip()
+    ctx.restore()
+
+
+    /!*96%*!/
+    if (percent > 2) {
+        ctx.fillStyle = '#009708'
+        ctx.fillRect(50, 180, 600, 40)
+    }
+
+    /!*2%*!/
+    if (percent > 96) {
+        ctx.save()
+        ctx.beginPath()
+        ctx.arc(650,200,20,Math.PI/2, -Math.PI/2, true)
+        ctx.fillStyle = '#009708'
+        ctx.fill();
+        ctx.clip()
+        ctx.restore()
+    }*/
+
+
+    /*/!* Set Middle Bar *!/
     ctx.fillStyle = '#6d6d6d'
     ctx.fillRect(348, 150, 4, 320)
 
-    /* Set nb Win */
+    /!* Set nb Win *!/
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
     ctx.font = '50px OpenSansR'
@@ -74,7 +140,7 @@ module.exports.matchCard = async (author, stats) => {
     ctx.drawImage(winI, 160, 200, 50, 50)
 
 
-    /* Set nb Loose */
+    /!* Set nb Loose *!/
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
     ctx.font = '50px OpenSansR'
@@ -84,7 +150,7 @@ module.exports.matchCard = async (author, stats) => {
     ctx.drawImage(looseI, 160, 300, 50, 50)
 
 
-    /* Set nb Game */
+    /!* Set nb Game *!/
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
     ctx.font = '50px OpenSansR'
@@ -94,7 +160,7 @@ module.exports.matchCard = async (author, stats) => {
     ctx.drawImage(gameI, 160, 400, 50, 50)
 
 
-    /* Set tot Gain */
+    /!* Set tot Gain *!/
     const coinI = await Canvas.loadImage('https://discord.com/assets/11b9d8164d204c7fd48a88a515745c1d.svg')
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
@@ -104,7 +170,7 @@ module.exports.matchCard = async (author, stats) => {
     ctx.drawImage(coinI, 510, 200, 50, 50)
 
 
-    /* Set tot Mise */
+    /!* Set tot Mise *!/
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
     ctx.font = '50px OpenSansR'
@@ -112,14 +178,14 @@ module.exports.matchCard = async (author, stats) => {
     ctx.fillText(stats.stake, 500, 290)
     ctx.drawImage(coinI, 510, 300, 50, 50)
 
-    /* Set % */
+    /!* Set % *!/
     ctx.textAlign = "right"
     ctx.textBaseline = "top"
     ctx.font = '50px OpenSansR'
     ctx.fillStyle = '#fff'
     ctx.fillText(stats.taux, 500, 390)
     const barI = await Canvas.loadImage('https://discord.com/assets/7b4003ce2786fcf382c6b1ba5ac08f24.svg')
-    ctx.drawImage(barI, 510, 400, 50, 50)
+    ctx.drawImage(barI, 510, 400, 50, 50)*/
 
     return canvas.toBuffer()
 }

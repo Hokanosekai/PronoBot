@@ -5,7 +5,7 @@ require('dotenv').config({path: '/root/botsdiscord/pronobot/.env'});
 
 let token = process.env.DISCORD_TOKEN
 
-const mongo = require('./mongo')
+const mongo = require('./util/mongo')
 
 /* Setup new discord.js client */
 const client = new Discord.Client({disableEveryone: true})

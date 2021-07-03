@@ -36,7 +36,10 @@ module.exports = {
             game: 0,
             gain_tot: 0,
             mise_tot: 0,
-            daily_claimed: false
+            daily_claimed: false,
+            xp: 0,
+            nb_vote: 0,
+            voted: 0
         }
 
 

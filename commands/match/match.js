@@ -1,5 +1,5 @@
 const dateformat = require('dateformat')
-const {capitalize} = require("../../functions");
+const {capitalize} = require("../../util/functions");
 const { matchCard } = require('../../canvas/card.match')
 
 

@@ -1,4 +1,4 @@
-const {capitalize} = require("../../functions");
+const {capitalize} = require("../../util/functions");
 const {ObjectId} = require("bson");
 
 const bet_controller = require('../../controllers/controller.bet')
