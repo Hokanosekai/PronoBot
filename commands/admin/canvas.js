@@ -1,5 +1,7 @@
 const {getLvl} = require("../../util/levels");
+const {capitalize, roomCode} = require("../../util/functions");
 const { statCard } = require('../../canvas/card.stats')
+const { matchCard } = require('../../canvas/card.match')
 
 
 module.exports = {
@@ -17,7 +19,7 @@ module.exports = {
 
         console.log(getLvl(undefined, db_values.USER.xp))
 
-        const buffer = await statCard(message.author, db_values.USER)
+        const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]], roomCode())
         const attachment = new Discord.MessageAttachment(buffer, 'test.png')
 
         await message.channel.send(attachment)

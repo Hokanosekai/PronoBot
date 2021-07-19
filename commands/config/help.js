@@ -25,7 +25,7 @@ module.exports = {
                     .setTitle(`**Commande** \`${prefix}help\``)
                     .setColor('#0099ff')
 
-
+                help.setDescription(`You have a little tutorial on our site [pronobot.top](https://pronobot.top/tutorial)\n For more info about the bot you can access the code on [GitHub](https://github.com/Hokanosekai/PronoBot)`)
 
                 const files = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.js'))
                 const emotes = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.json'))
@@ -46,11 +46,8 @@ module.exports = {
                 pages.push(help)
             }
 
-
             const emojiList = ['⏪','⏩']
-
             const timeout = '120000'
-
             return pagination(message, pages, emojiList, timeout)
         }
 

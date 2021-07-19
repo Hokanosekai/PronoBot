@@ -26,7 +26,7 @@ module.exports = {
 
         const match_info = JSON.parse(db_values.MATCH.info)
 
-        const buffer = await matchCard('Current Match', capitalize(match_info.atk_n), capitalize(match_info.def_n), ['@'+match_info.atk_c, '@'+match_info.nul_c, '@'+match_info.def_c])
+        const buffer = await matchCard('Current Match', capitalize(match_info.atk_n), capitalize(match_info.def_n), ['@'+match_info.atk_c, '@'+match_info.nul_c, '@'+match_info.def_c], db_values.MATCH.code)
         const attachment = new Discord.MessageAttachment(buffer, db_values.MATCH._id+'.png')
 
         await message.channel.send(attachment)

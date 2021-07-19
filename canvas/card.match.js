@@ -1,6 +1,6 @@
 const Canvas = require('canvas')
 
-module.exports.matchCard = async (name, clubA, clubB, cotes) => {
+module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
 
     Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
     Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
@@ -21,26 +21,32 @@ module.exports.matchCard = async (name, clubA, clubB, cotes) => {
     ctx.textAlign = "center"
     ctx.fillText(name, 300, 40)
 
+    /* Set match code */
+    ctx.fillStyle = '#ababab'
+    ctx.font = '30px OpenSansL'
+    ctx.textAlign = "center"
+    ctx.fillText(code, 300, 90)
+
     /* Set Club 1 */
     const club1 = await Canvas.loadImage(`${process.env.BOT_PATH}/images/club1.png`)
-    ctx.drawImage(club1, 115, 90,  50, 50)
+    ctx.drawImage(club1, 115, 120,  50, 50)
     ctx.textAlign = "center"
     ctx.font = "23px OpenSansR"
     ctx.fillStyle = '#ababab'
-    ctx.fillText(clubA, 140, 170)
+    ctx.fillText(clubA, 140, 200)
 
 
     /* Set Club 2 */
     const club2 = await Canvas.loadImage(`${process.env.BOT_PATH}/images/club2.png`)
-    ctx.drawImage(club2, 435, 90,  50, 50)
+    ctx.drawImage(club2, 435, 120,  50, 50)
     ctx.textAlign = "center"
     ctx.font = "23px OpenSansR"
     ctx.fillStyle = '#ababab'
-    ctx.fillText(clubB, 460, 170)
+    ctx.fillText(clubB, 460, 200)
 
     /* Set VS image */
     const vsImg = await Canvas.loadImage(`${process.env.BOT_PATH}/images/matchVS.png`)
-    ctx.drawImage(vsImg, 265, 95, 70, 70);
+    ctx.drawImage(vsImg, 265, 125, 70, 70);
 
 
     /* Set Cote BG 1 */

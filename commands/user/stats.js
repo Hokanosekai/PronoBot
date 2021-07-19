@@ -1,4 +1,5 @@
 const {getLvl} = require('../../util/levels')
+const { statCard } = require('../../canvas/card.stats')
 
 const name = 'stats'
 const category = 'user'
@@ -29,7 +30,12 @@ module.exports = {
 
         if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
 
-        let taux = USER.game? (USER.win * 100) / USER.game : 0
+        const buffer = await statCard(message.author, db_values.USER)
+        const attachment = new Discord.MessageAttachment(buffer, `${message.author.tag}-stats.png`)
+
+        await message.channel.send(attachment)
+
+        /*let taux = USER.game? (USER.win * 100) / USER.game : 0
 
         const level = getLvl(undefined, USER.xp)
         console.log(level)
@@ -43,6 +49,6 @@ module.exports = {
             { name: langF.mise, value: USER.mise_tot + ' :coin:', inline: true },
             { name: 'xp', value: USER.xp +' '+ level.name +' '+ level.nb +' '+ level.xp[1] , inline: true },
         )
-        message.channel.send(statsCommand);
+        message.channel.send(statsCommand);*/
     }
 }

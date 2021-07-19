@@ -20,7 +20,7 @@ mongo().then(async mongoose => {
 });
 
 poster.on('posted', (stats) => { // ran when succesfully posted
-    console.log(`Posted stats to Top.gg | ${stats.serverCount} servers`)
+    console.log(`Posted stats to Top.gg | ${JSON.stringify(stats)}`)
 });
 
 ['command_handler', 'event_handler'].forEach(handler => {

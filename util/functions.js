@@ -1,3 +1,18 @@
+/**
+ * Generate 4 random chars
+ *
+ * @returns {string}
+ */
+module.exports.roomCode = () => {
+    let code = "";
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789';
+    for (let i = 0; i < 4; i++) {
+        code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return code;
+}
+
+
 module.exports.capitalize = (str) => {
     return str.replace(/^\w/, c => { return c.toUpperCase()})
 }

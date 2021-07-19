@@ -8,6 +8,7 @@ const reqString = {
 }
 
 const modelMatch = new Schema({
+    code: reqString,
     authorID: reqString,
     authorTag: reqString,
     authorAvatar: reqString,

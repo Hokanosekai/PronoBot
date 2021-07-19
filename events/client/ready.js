@@ -13,7 +13,6 @@ module.exports = {
     loaded: true,
 
     execute: async (client, Discord, mongoose) => {
-        console.log(getLvl(undefined, 845))
         console.log('\x1b[35m','\n\n⇐=','\x1b[45m\x1b[32m','Prono is now ONLINE','\x1b[40m\x1b[35m','=⇒','\x1b[37m');
 
         /* Set the activity of the client every 2sec */
@@ -28,8 +27,7 @@ module.exports = {
                 `&help`
             ]
             client.user.setActivity(statuses[i]).then(() => {
-                if (i < statuses.length) i++
-                else i = 0
+                i = ++i % statuses.length
             })
         }, 2000)
 

@@ -1,4 +1,4 @@
-const {capitalize} = require("../../util/functions");
+const {capitalize, roomCode} = require("../../util/functions");
 const {ObjectId} = require("bson");
 
 const { matchCard } = require('../../canvas/card.match')
@@ -19,7 +19,6 @@ module.exports = {
 
     run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
-
         const langF = langFile.commands[category][name]
 
         let date = args[6] !== undefined? new Date(`${args[6]}`).getTime() : 'null'
@@ -31,6 +30,7 @@ module.exports = {
 
 
         const matchData = {
+            code: roomCode(),
             authorID: author.id,
             authorTag: message.author.tag,
             authorAvatar: message.author.displayAvatarURL({ dynamic: true }),
@@ -51,7 +51,7 @@ module.exports = {
             const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
             //await message.channel.send(`[✅] ${langF.success}`) //<@&${n}>
 
-            const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]])
+            const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]], matchData.code)
             const attachment = new Discord.MessageAttachment(buffer, args[0]+'-'+args[4]+'.png')
 
 

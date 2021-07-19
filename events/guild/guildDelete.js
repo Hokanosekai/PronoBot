@@ -22,15 +22,13 @@ module.exports = {
             })
 
 
-
-
             guild_controller.delete({_id: g[0]._id}).catch(err => console.error(err))
             user_controller.delete({guild: g[0]._id}).catch(err => console.error(err))
             bet_controller.delete({guild: g[0]._id}).catch(err => console.error(err))
             match_controller.delete({guild: g[0]._id}).catch(err => console.error(err))
 
             log(`: Deleted server : ${guild.name} | ${guild.id}`)
-            setGuildInfo()
+            await setGuildInfo()
         }).catch(err => console.error(err))
     }
 }

@@ -101,13 +101,13 @@ module.exports = {
                 const member = client.users.cache.get(USER.userID)
                 member.send(del)
 
-                //bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
+                bet_controller.delete({_id: bet._id}).catch(err => console.error(err))
                 config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'bet'}).catch(err => console.error(err))
 
             }).catch(err => console.error(err));
         });
 
-        //await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
+        await match_controller.delete({_id: MATCH._id}).catch(err => console.error(err))
         config_controller.update({_id: '60abcf4ba4151560f5ad248c', type: 'match'}).catch(err => console.error(err))
 
         const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id

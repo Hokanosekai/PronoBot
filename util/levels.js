@@ -118,7 +118,6 @@ const levels = [
 
 module.exports = {
     getLvl: (lvl, xp) => {
-        console.log(lvl, xp)
         if (xp === undefined) return levels.filter(l => lvl === l.nb)[0];
         if (lvl === undefined) return levels.filter(l => xp < l.xp[1] && xp > l.xp[0])[0]
     }
