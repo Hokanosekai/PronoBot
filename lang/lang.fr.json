@@ -79,7 +79,8 @@
         "already_match": "Il y a déjà un match en cours :crossed_flags:",
         "no_time": "Utilisez `[prefix]bet <club> <somme>` pour miser",
         "time": "Utilisez `[prefix]bet <club> <somme>` pour miser \nVous ne pourrez plus parier à partie de : [time]",
-        "success": "Nouveau match créé"
+        "success": "Nouveau match créé",
+        "number": "Les cotes doivent être des nombres"
       },
       "delete": {
         "embed_title": "Match supprimé !",

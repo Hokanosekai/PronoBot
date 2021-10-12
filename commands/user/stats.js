@@ -27,7 +27,6 @@ module.exports = {
             .setColor('YELLOW')
             .setThumbnail(author.avatar)
 
-
         if (USER === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_account}`)
 
         const buffer = await statCard(message.author, db_values.USER)

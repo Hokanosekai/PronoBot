@@ -23,11 +23,24 @@ module.exports = {
 
         let date = args[6] !== undefined? new Date(`${args[6]}`).getTime() : 'null'
 
-
         if (args.length < 6) return
 
         if (db_values.MATCH !== undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.already_match}`)
 
+        let atk_c = parseFloat(args[1].substring(1).replace(',', '.'))
+        let nul_c = parseFloat(args[3].substring(1).replace(',', '.'))
+        let def_c = parseFloat(args[5].substring(1).replace(',', '.'))
+
+        console.log(typeof atk_c, typeof nul_c, typeof def_c)
+
+        if (
+            typeof atk_c !== "number"
+            || typeof nul_c !== "number"
+            || typeof def_c !== "number"
+            || isNaN(atk_c)
+            || isNaN(nul_c)
+            || isNaN(def_c)
+        ) return message.channel.send(`[❌] <@${author.id}> ${langF.number}`)
 
         const matchData = {
             code: roomCode(),
@@ -37,11 +50,11 @@ module.exports = {
             guild_id: ObjectId(`${db_values.GUILD._id}`),
             info: JSON.stringify({
                 atk_n: args[0].toLowerCase(),
-                atk_c: args[1].substring(1),
+                atk_c: atk_c,
                 nul_n: args[2].toLowerCase(),
-                nul_c: args[3].substring(1),
+                nul_c: nul_c,
                 def_n: args[4].toLowerCase(),
-                def_c: args[5].substring(1),
+                def_c: def_c,
                 end_date: date
             })
         }
@@ -51,7 +64,17 @@ module.exports = {
             const n = db_values.GUILD.notif? db_values.GUILD.notif : author.id
             //await message.channel.send(`[✅] ${langF.success}`) //<@&${n}>
 
-            const buffer = await matchCard('New Match', capitalize(args[0]), capitalize(args[4]), [args[1], args[3], args[5]], matchData.code)
+            const buffer = await matchCard(
+                'New Match',
+                capitalize(args[0]),
+                capitalize(args[4]),
+                [
+                    args[1].replace(',', '.'),
+                    args[3].replace(',', '.'),
+                    args[5].replace(',', '.')
+                ],
+                matchData.code
+            )
             const attachment = new Discord.MessageAttachment(buffer, args[0]+'-'+args[4]+'.png')
 
 

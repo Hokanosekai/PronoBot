@@ -91,7 +91,7 @@ module.exports = {
                     user_controller.update({_id: USER._id, type: 'loose', value: USER.loose + 1}).catch(err => console.error(err))
                 }
 
-                console.log(USER.xp, xp, USER.xp + xp)
+                /*console.log(USER.xp, xp, USER.xp + xp)*/
                 if ((USER.xp + xp) <= 0) xp = -USER.xp;
                 await user_controller.update({_id: USER._id, type: 'xp', value: USER.xp + xp})
 

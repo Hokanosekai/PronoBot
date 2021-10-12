@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const user_controller = require('../../controllers/controller.user')
+const guild_controller = require('../../controllers/controller.guild')
+
 
 module.exports = {
     name: "setbalance",
@@ -8,36 +10,31 @@ module.exports = {
     usage: '<@user> <new balance>',
     args: true,
     admin: true,
-    loaded: false,
+    loaded: true,
 
-    run: async (message, args, client, langFile) => {
+    run: async (message, args, client, langFile, db_values, Discord) => {
         const author = message.member
 
         const member = message.mentions.members.first()
 
         if (args.length < 2) return
 
-        if (!member) return message.channel.send(`[❌] <@${author.id}> Veuiller mentionner un utilisateur.`)
+        let user_id = args[0]
+        let guild_id = args[1]
+        let new_balance = args[2]
 
-        if (args[1] < 0) return message.channel.send(`[❌] <@${author.id}> Vous ne pouvez pas mettre moins que 0.`)
+        if (new_balance < 0) return message.channel.send(`[❌] <@${author.id}> Vous ne pouvez pas mettre moins que 0.`)
 
-        getUser(member.id).then(async user => {
-            if (user.length === 0) return message.channel.send(`[❌] <@${author.id}> Erreur, cet utilisateur n'existe pas.`)
+        guild_controller.get({_id: guild_id}).then(res => {
+           if (res.length <= 0) return message.channel.send(`[❌] <@${author.id}> Guild inexistante`)
+        });
 
-            let bet = new Discord.MessageEmbed()
-                .setTitle(`Commande \`&setbalance\``)
-                .setColor('DARK_GREEN')
-                .setDescription(`Vous avez mis la balance de ${member.tag} à ${args[1]} :coin:`)
+        user_controller.get({_id: user_id}).then(res => {
+            if (res.length <= 0) return message.channel.send(`[❌] <@${author.id}> utilisateur inexistant`)
+        })
 
-            await updateMoney(user[0].id_user, args[1]).then(() => {
-                message.author.send(bet)
-
-            }).catch(err => {
-                console.error(err)
-            })
-
-        }).catch(err => {
-            console.error(err)
+        user_controller.update({_id: user_id, type: 'money', value: new_balance}).then(() => {
+            message.channel.send(`vous avez bien modifier la balance de l'utilisateur ${user_id}`)
         })
     }
 }

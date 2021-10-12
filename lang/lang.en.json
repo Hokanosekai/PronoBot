@@ -79,7 +79,8 @@
         "already_match": "There is already a match in progress :crossed_flags:",
         "no_time": "Use `&bet <club> <sum>` to bet",
         "time": "Use `&bet <club> <sum>` to bet\nYou will not be able to bet from : [time]",
-        "success": "New match created"
+        "success": "New match created",
+        "number": "The odds must be numbers"
       },
       "delete": {
         "embed_title": "Match deleted!",

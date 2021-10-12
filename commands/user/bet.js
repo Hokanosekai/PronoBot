@@ -42,7 +42,7 @@ module.exports = {
         /* if user have not enough money */
         if (USER.money < args[1] && args[1] !== 'all') return message.channel.send(`[❌] <@${author.id}> ${langF.no_money}`)
 
-        let mise = args[1] === 'all'? USER.money : args[1]
+        let mise = args[1] === 'all'? USER.money : parseFloat(args[1].replace(',', '.'))
 
         /* if there is no match in server */
         if (MATCH === undefined) return message.channel.send(`[❌] <@${author.id}> ${langF.no_match}`)
