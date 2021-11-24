@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const bot_path = process.env.BOT_PATH
+const bot_path = process.cwd();
 
 module.exports = (client, Discord) => {
     const load_dirs = (dirs) => {
