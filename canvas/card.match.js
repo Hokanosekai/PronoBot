@@ -2,8 +2,8 @@ const Canvas = require('canvas')
 
 module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
 
-    Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
-    Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
+    Canvas.registerFont(`${process.cwd()}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
+    Canvas.registerFont(`${process.cwd()}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
 
     const canvas = Canvas.createCanvas(600, 300)
     const ctx = canvas.getContext('2d')
@@ -13,7 +13,7 @@ module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     /* Set Logo */
-    const logo = await Canvas.loadImage(`${process.env.BOT_PATH}/images/logo.svg`)
+    const logo = await Canvas.loadImage(`${process.cwd()}/images/logo.svg`)
     ctx.drawImage(logo, 5, 5, 50, 37.5)
 
     ctx.fillStyle = '#fff'
@@ -28,7 +28,7 @@ module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
     ctx.fillText(code, 300, 90)
 
     /* Set Club 1 */
-    const club1 = await Canvas.loadImage(`${process.env.BOT_PATH}/images/club1.png`)
+    const club1 = await Canvas.loadImage(`${process.cwd()}/images/club1.png`)
     ctx.drawImage(club1, 115, 120,  50, 50)
     ctx.textAlign = "center"
     ctx.font = "23px OpenSansR"
@@ -37,7 +37,7 @@ module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
 
 
     /* Set Club 2 */
-    const club2 = await Canvas.loadImage(`${process.env.BOT_PATH}/images/club2.png`)
+    const club2 = await Canvas.loadImage(`${process.cwd()}/images/club2.png`)
     ctx.drawImage(club2, 435, 120,  50, 50)
     ctx.textAlign = "center"
     ctx.font = "23px OpenSansR"
@@ -45,7 +45,7 @@ module.exports.matchCard = async (name, clubA, clubB, cotes, code) => {
     ctx.fillText(clubB, 460, 200)
 
     /* Set VS image */
-    const vsImg = await Canvas.loadImage(`${process.env.BOT_PATH}/images/matchVS.png`)
+    const vsImg = await Canvas.loadImage(`${process.cwd()}/images/matchVS.png`)
     ctx.drawImage(vsImg, 265, 125, 70, 70);
 
 
