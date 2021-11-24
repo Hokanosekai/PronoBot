@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const { AutoPoster } = require('topgg-autoposter')
 
-require('dotenv').config({path: '/root/botsdiscord/pronobot/.env'});
+require('dotenv').config({path: `${process.cwd()}/.env`});
 
 let token = process.env.DISCORD_TOKEN
 
