@@ -19,7 +19,7 @@ module.exports = {
 
             const pages = []
 
-            const folders = fs.readdirSync(process.env.BOT_PATH+'/commands').filter(folder => folder !== 'admin')
+            const folders = fs.readdirSync(process.cwd()+'/commands').filter(folder => folder !== 'admin')
             for(const folder of folders){
                 let help = new Discord.MessageEmbed()
                     .setTitle(`**Commande** \`${prefix}help\``)
@@ -27,8 +27,8 @@ module.exports = {
 
                 help.setDescription(`You have a little tutorial on our site [pronobot.top](https://pronobot.top/tutorial)\n For more info about the bot you can access the code on [GitHub](https://github.com/Hokanosekai/PronoBot)`)
 
-                const files = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.js'))
-                const emotes = fs.readdirSync(process.env.BOT_PATH+`/commands/${folder}`).filter(file => file.endsWith('.json'))
+                const files = fs.readdirSync(process.cwd()+`/commands/${folder}`).filter(file => file.endsWith('.js'))
+                const emotes = fs.readdirSync(process.cwd()+`/commands/${folder}`).filter(file => file.endsWith('.json'))
 
                 const { emote, name, loaded } = require(`../../commands/${folder}/${emotes}`)
 
