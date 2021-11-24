@@ -7,8 +7,8 @@ module.exports.statCard = async (author, USER) => {
     const avatar = author.displayAvatarURL({format: 'png'})
     const presence = author.presence.status
 
-    Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
-    Canvas.registerFont(`${process.env.BOT_PATH}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
+    Canvas.registerFont(`${process.cwd()}/fonts/OpenSans-Regular.ttf`, {family: 'OpenSansR'})
+    Canvas.registerFont(`${process.cwd()}/fonts/OpenSans-Light.ttf`, {family: 'OpenSansL'})
 
     const canvas = Canvas.createCanvas(700, 500)
     const ctx = canvas.getContext('2d')
@@ -18,7 +18,7 @@ module.exports.statCard = async (author, USER) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     /* Set Logo */
-    const logo = await Canvas.loadImage(`${process.env.BOT_PATH}/images/logo.svg`)
+    const logo = await Canvas.loadImage(`${process.cwd()}/images/logo.svg`)
     ctx.drawImage(logo, 5, 5, 50, 37.5)
 
 
